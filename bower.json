@@ -1,0 +1,24 @@
+{
+  "name": "iyadassaf",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/IyadAssaf/iyadassaf",
+  "authors": [
+    "iyadassaf <iyadassaflondon@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.22",
+    "requirejs": "~2.1.14",
+    "angularAMD": "~0.2.1",
+    "backbone": "~1.1.2"
+  }
+}
