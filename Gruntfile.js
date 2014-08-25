@@ -51,7 +51,8 @@ module.exports = function (grunt) {
 					}
 				},
 				files: {
-					"views/layout.html": "views/jade/layout.jade"
+					"views/layout.html": "views/jade/layout.jade",
+					"app/public/app/templates/sidebar.html": "views/jade/templates/sidebar.jade"
 				}
 			}
 		},
@@ -71,6 +72,15 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		cssmin: {
+			minify: {
+				expand: true,
+				cwd: 'app/public/assets/styles/',
+				src: ['*.css', '!*.min.css'],
+				dest: 'app/public/assets/styles/',
+				ext: '.min.css'
+			}
+		},
 		watch: {
 			jade: {
 				files: ['views/jade/**/*.jade'],
@@ -81,7 +91,7 @@ module.exports = function (grunt) {
 			},
 			styles: {
 				files: ['styles/**/**/*.scss'],
-				tasks: ['sass'],
+				tasks: ['sassMin'],
 				options: {
 					spawn: false,
 				}
@@ -92,10 +102,12 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Tasks
+	grunt.registerTask('sassMin', 'sass', 'cssmin');
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
 

@@ -1,17 +1,9 @@
 /**
- * production configuration
+ * @desc production configuration
  */
-module.exports = {
+module.exports = require('util')._extend(require('./common.js'), {
     name: 'production',
     verbose: 2,
     mongo: process.env.MONGO_IYAD,
     port: process.env.PORT || 3000,
-    profile: {
-        github: {
-            username: 'iyadassaf'
-        },
-        twitter: {
-            username: 'iyadassaf'
-        }
-    }
-};
+});

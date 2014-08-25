@@ -1,7 +1,7 @@
 /**
- * test configuration
+ * @desc test configuration
  */
-module.exports = {
+module.exports = require('util')._extend(require('./common.js'), {
     name: 'test',
     verbose: 2,
     mongo: process.env.MONGO_IYAD,

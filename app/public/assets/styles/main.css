@@ -6084,6 +6084,16 @@ body {
   font-size: 20;
   color: #A2A2A2;
   font-family: 'Raleway', sans-serif; }
+  body a {
+    cursor: pointer; }
+    body a:hover {
+      text-decoration: none !important; }
+    body a .icon {
+      color: #000000; }
+  body p {
+    color: #A2A2A2; }
+  body img {
+    color: #A2A2A2; }
 
 /**
  * Sidebar
@@ -6124,7 +6134,8 @@ body {
         -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
     #sidebar .profile p {
       text-align: center;
-      padding-top: 18px; }
+      padding-top: 18px;
+      color: #A2A2A2; }
   #sidebar .social {
     padding-top: 6px; }
     #sidebar .social ul {
@@ -6135,6 +6146,8 @@ body {
       #sidebar .social ul li {
         display: inline;
         padding: 10px; }
+      #sidebar .social ul .github {
+        color: #000000; }
       #sidebar .social ul .twitter {
         vertical-align: -5; }
   #sidebar .desc {

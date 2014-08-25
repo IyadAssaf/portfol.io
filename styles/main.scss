@@ -12,6 +12,25 @@ body {
     font-size: 20;
     color:#A2A2A2;
     font-family:'Raleway', sans-serif;
+
+    a {
+        cursor: pointer;
+        &:hover {
+            text-decoration:none !important;
+        };
+
+        .icon {
+            color: #000000;
+        };
+    };
+
+    p {
+        color:#A2A2A2;
+    };
+
+    img {
+        color:#A2A2A2;
+    };
 };
 
 /**
@@ -47,6 +66,7 @@ body {
         p {
             text-align: center;
             padding-top: 18px;
+            color:#A2A2A2;
         };
     };
 
@@ -67,7 +87,7 @@ body {
             };
 
             .github {
-
+                color: #000000;
             };
 
             .twitter {

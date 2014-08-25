@@ -1,0 +1,17 @@
+.profile
+    a(href!="https://github.com/<%= github.username %>")
+        .image
+    a(href!="https://github.com/<%= github.username %>")
+        p @<%= github.username %>
+    .social
+        ul
+            li
+                a(href!="https://github.com/<%= github.username %>")
+                    .icon.github.mega-octicon.octicon-mark-github
+            li
+                span
+                    a(href!="https://twitter.com/<%= twitter.username %>")
+                        img.twitter(src="/assets/images/twitter_icon_32px.png")
+
+.desc
+    p <%= bio %>

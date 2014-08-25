@@ -1,7 +1,7 @@
 /**
- * local configuration
+ * @desc local configuration
  */
-module.exports = {
+module.exports = require('util')._extend(require('./common.js'), {
     name: 'local',
     verbose: 2,
     mongo: process.env.MONGO_IYAD,

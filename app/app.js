@@ -1,6 +1,7 @@
 var App,
     self,
-    express = require('express');
+    express = require('express')
+    fs = require('fs');
 
 /**
  * @class App
@@ -14,7 +15,8 @@ module.exports = App = function (cfg) {
 };
 
 /**
- * @method listen
+ * @method _listen
+ * @private
  * @desc Start the app
  */
 App.prototype._listen = function () {
@@ -32,11 +34,11 @@ App.prototype._listen = function () {
     self.socket = require('socket.io')(self.server);
 
     self.app.get('/', function (req, res) {
-        res.write(require('fs').readFileSync(process.cwd() + '/views/layout.html'));
+        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
         res.end();
     });
 
-    // controllers for data and data transport to client
+    // controllers for data and transport to client
     new (require('./controllers/main.js'))(self);
 
     self.server.listen(self.app.get('port'), function () {
