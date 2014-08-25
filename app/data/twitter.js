@@ -9,9 +9,8 @@ var Twitter, self,
  * @desc Request data from Twitter
  */
 module.exports = Twitter = function (appl) {
-
+    
     this.username = appl.cfg.profile.twitter.username;
-
     self = this;
 };
 

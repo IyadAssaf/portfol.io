@@ -38,7 +38,7 @@ Comment.prototype.query = function () {
     .exec(function (err, posts) {
         d[err ? 'reject' : 'resolve'](err ? err : posts);
     });
-
+    
     return d.promise;
 };
 

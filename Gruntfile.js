@@ -51,8 +51,17 @@ module.exports = function (grunt) {
 					}
 				},
 				files: {
-					"views/layout.html": "views/jade/layout.jade",
-					"app/public/app/templates/sidebar.html": "views/jade/templates/sidebar.jade"
+
+					// main layout
+					'views/layout.html': 'views/jade/layout.jade',
+
+					// side bars
+					'app/public/app/templates/sidebar.html': 'views/jade/templates/sidebar.jade',
+					'app/public/app/templates/adminSidebar.html': 'views/jade/templates/adminSidebar.jade',
+
+					// content holder and admin content editor
+					'app/public/app/templates/content.html': 'views/jade/templates/content.jade',
+					'app/public/app/templates/adminContent.html': 'views/jade/templates/adminContent.jade'
 				}
 			}
 		},

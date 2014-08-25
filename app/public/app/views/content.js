@@ -14,7 +14,9 @@ define(['backbone', 'underscore'],
 
         render: function () {
 
-        }
+        },
+
+        el: '#content'
     });
 
     return ContentView;

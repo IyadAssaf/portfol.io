@@ -1,16 +1,19 @@
-// Load data from Githib and Twitter HTTP Apis for activity
+'use strict';
 
 var Feed, self, needle = require('needle');
 
+/**
+ * @class Feed
+ * @desc Data from Github and Twitter and blog posts
+ */
 module.exports = Feed = function (appl) {
 
     self = this;
 };
 
-Feed.prototype.load = function () {
-
-};
-
+/**
+ * @class query
+ */
 Feed.prototype.query = function () {
 
 };

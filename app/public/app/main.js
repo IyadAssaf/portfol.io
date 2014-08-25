@@ -36,8 +36,11 @@
         priority: []
     });
 
-    // require the view
-    require(['views/app', 'router/router'], function (AppView, AppRouter) {
-        return new AppView() && new AppRouter();
+    // require the router
+    require(['router/router'], function (AppRouter) {
+        return new AppRouter();
     });
+    // require(['views/app', 'router/router'], function (AppView, AppRouter) {
+    //     return new AppView() && new AppRouter();
+    // });
 })();

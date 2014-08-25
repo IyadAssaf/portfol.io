@@ -1,6 +1,6 @@
 define([], function () {
     'use strict';
-    
+
     return {
         profile: {
             github: {
@@ -9,7 +9,8 @@ define([], function () {
             twitter: {
                 username: 'IyadAssaf'
             },
-            bio: 'Nodejs middleware, ObjC and all things code fan, audio hacker.'
+            bio: 'All the things developer, Audio hacker.',
+            image: 'https://avatars.githubusercontent.com/u/2248805?v=2'
         }
     };
 });

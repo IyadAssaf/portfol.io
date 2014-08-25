@@ -27,19 +27,32 @@ App.prototype._listen = function () {
     // setup express and properties
     self.app = express()
     .set('port', self.cfg.port)
-    .use(express.static(process.cwd() + '/app/public'));
+    .use(require('cookie-parser')())
+    .use(require('./routes/main.js')())
+    .use(express.static(process.cwd() + '/app/public'))
+    .use(require('express-session')({
+        secret: 'secret',
+        key: 'portfol.io.sid',
+        resave: true,
+        saveUninitialized: true
+    }));
 
     // setup server, bind with socket.io and listen
     self.server = require('http').Server(self.app);
     self.socket = require('socket.io')(self.server);
 
-    self.app.get('/', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
-    });
-
     // controllers for data and transport to client
-    new (require('./controllers/main.js'))(self);
+    new (require('./controllers/main.js'))(self)
+
+    // redirect if none of the paths are caught
+    self.app.use(function (req, res, next) {
+        return !res.headersSent ? (function () {
+            res.redirect('/');
+            next();
+        })() : (function () {
+            next();
+        })();
+    });
 
     self.server.listen(self.app.get('port'), function () {
         console.log('Listening to port ' + self.cfg.port);

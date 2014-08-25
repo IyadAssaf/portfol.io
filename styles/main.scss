@@ -54,7 +54,7 @@ body {
         width: 150px;
 
         .image {
-            @include circle-image("https://avatars3.githubusercontent.com/u/2248805?v=2&s=460", 150px, 150px);
+            @include circle-image("", 150px, 150px);
 
             &:hover {
                 box-shadow: 0 0 8px rgba(0, 0, 0, .01);

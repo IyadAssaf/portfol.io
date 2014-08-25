@@ -6,7 +6,6 @@ var Post, self, q = require('q');
  * @class Post
  * @desc Blog post database model and methods
  */
-
 module.exports = Post = function (appl) {
 
     this.db = appl.db;

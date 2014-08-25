@@ -1,19 +1,28 @@
-define(['backbone'], function (Backbone) {
+define(['backbone', 'views/sidebar'], function (Backbone, SideBarView) {
     'use strict';
 
     var AppRouter = function () {
 
         var router = new (Backbone.Router.extend({
             routes: {
-                '*actions': 'defaultRoute'
+                'admin': 'admin',
+                '': 'default'
             }
         }))();
 
-        router.on('route:defaultRoute', function () {
-
+        router
+        .on('route:admin', function () {
+            new SideBarView({ admin: true });
+        })
+        .on('route:default', function () {
+            new SideBarView();
         });
 
-        Backbone.history.start();
+        // start HTML5 pushState
+        Backbone.history.start({
+            pushState: true,
+            root: '/'
+        });
     };
 
     return AppRouter;

@@ -15,7 +15,7 @@ module.exports = Github = function (appl) {
 
 Github.prototype.events = function () {
     var d = q.defer();
-
+    
     needle.get('https://api.github.com/users/' + self.username + '/events', function (err, resp) {
         console.log(resp.body);
         d[err ? 'reject' : 'resolve'](err ? err : resp.body);
