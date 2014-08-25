@@ -8,7 +8,7 @@
     "start": "node index.js --scheme=production",
     "local": "node index.js --scheme=local",
     "dev": "node_modules/.bin/grunt test && node index.js --scheme=dev",
-    "postinstall": "./node_modules/.bin/bower install",
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/grunt build",
     "test": "./node_modules/.bin/grunt test"
   },
   "dependencies": {
@@ -23,9 +23,7 @@
     "cron": "^1.0.4",
     "twitter": "^0.2.9",
     "cookie-parser": "^1.3.2",
-    "express-session": "^1.7.6"
-  },
-  "devDependencies": {
+    "express-session": "^1.7.6",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.10.0",
@@ -35,5 +33,7 @@
     "grunt-mocha-test": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-cssmin": "^0.10.0"
+  },
+  "devDependencies": {
   }
 }

@@ -1,5 +1,8 @@
 .DS_Store
 node_modules
-app/public/assets/bower_components
 .sass-cache
 npm-debug.log
+views/layout.html
+app/public/app/templates
+app/public/assets/styles
+app/public/assets/bower_components

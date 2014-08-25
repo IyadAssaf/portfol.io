@@ -119,6 +119,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('sassMin', 'sass', 'cssmin');
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('build', ['jade', 'sassMin']);
 
 	// Default should be run after npm install
 	grunt.registerTask('default', ['test']);
