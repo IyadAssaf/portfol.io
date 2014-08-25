@@ -34,11 +34,13 @@ module.exports = function (grunt) {
 					describe: true,
 					it: true,
 					beforeEach: true,
-					before: true
+					before: true,
+					define: true,
+					require: true
 				},
                 reporter: require('jshint-stylish')
             },
-            uses_defaults: ['public/app/**/**/**/*.js', 'test/**/**/**/*.js']
+            uses_defaults: ['app/public/app/**/**/**/*.js', 'test/**/**/**/*.js']
 		},
 		jade: {
 			debug: {
@@ -58,14 +60,14 @@ module.exports = function (grunt) {
 				options: {
 					loadPath: [
 						// bootstrap
-						'public/assets/bower_components/bootstrap-sass-official/assets/stylesheets',
+						'app/public/assets/bower_components/bootstrap-sass-official/assets/stylesheets',
 
 						// icons
-						'public/assets/bower_components/octicons/octicons'
+						'app/public/assets/bower_components/octicons/octicons'
 					]
 				},
 				files: {
-					'public/assets/styles/main.css': ['styles/main.scss', 'styles/utility/**/*.scss']
+					'app/public/assets/styles/main.css': ['styles/main.scss', 'styles/utility/**/*.scss']
 				}
 			}
 		},

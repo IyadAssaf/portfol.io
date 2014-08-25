@@ -6077,10 +6077,13 @@ button.close {
  * @mixin transition
  * @param $time {Float} Time for animation transition
  */
+/**
+ * Global
+ */
 body {
   font-size: 20;
   color: #A2A2A2;
-  font-family: "Raleway", sans-serif; }
+  font-family: 'Raleway', sans-serif; }
 
 /**
  * Sidebar
@@ -6115,6 +6118,10 @@ body {
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
       -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
       -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8); }
+      #sidebar .profile .image:hover {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.01);
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
     #sidebar .profile p {
       text-align: center;
       padding-top: 18px; }
@@ -6139,10 +6146,21 @@ body {
       font-size: 22;
       text-align: center; }
 
+/**
+ * Content
+ */
 #content {
   width: 100%;
-  padding: 15px; }
+  padding: 15px;
+  background-image: url(http://buyersupplierconnect.com/wp-content/uploads/2014/02/light-grey-background-pattern-i31.jpg);
+  height: 100%; }
 
+/**
+ * Smaller screen support
+ */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 0px; } }
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -6180,10 +6198,3 @@ body {
 .sidebar-nav > .sidebar-brand a:hover {
   color: #fff;
   background: none; }
-
-/**
- * @desc for smaller screens
- */
-@media (max-width: 768px) {
-  #sidebar {
-    width: 0px; } }

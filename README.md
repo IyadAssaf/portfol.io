@@ -1,4 +1,4 @@
-iyadassaf
+portfol.io
 ======
 
-Portfolio and blog based off twitter and github posts
+Portfolio and blog based off twitter, github activity and blog posts

@@ -1,15 +1,24 @@
-var express = require('express'),
-    app = express(),
-    fs = require('fs');
+/**
+ * @desc main file for running the application
+ */
 
-app
-.use(express.static('public'))
-.set('port', process.env.PORT || 3000)
-.listen(app.get('port'), function () {
-    console.log('Express app listning on port: ' + app.get('port'));
-});
+'use strict';
 
-app.get('/', function (req, res) {
-    res.write(fs.readFileSync('views/layout.html'));
-    res.end();
-});
+var Application = function (profile) {
+
+    new (require('./app/app'))(profile)
+    .then(function (resp) {
+        
+    }).fail(function (error) {
+        // error was thrown
+        console.error(profile.scheme + ': Error: ' + error);
+    })
+    .done();
+
+    return delete profile.mongo && profile;
+};
+
+/**
+ * Load configuration schemes from the ./cfg dir using command line args
+ */
+console.log(new Application(require('./cfg/' + require('optimist').argv.scheme)));
