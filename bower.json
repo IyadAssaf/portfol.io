@@ -19,6 +19,8 @@
     "angular": "~1.2.22",
     "requirejs": "~2.1.14",
     "angularAMD": "~0.2.1",
-    "backbone": "~1.1.2"
+    "backbone": "~1.1.2",
+    "bootstrap-sass-official": "~3.2.0+1",
+    "octicons": "~2.1.1"
   }
 }

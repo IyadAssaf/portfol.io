@@ -4,15 +4,39 @@ html
         script(src="/assets/bower_components/requirejs/require.js", data-main="/app/main")
         link(rel="stylesheet" href="/assets/styles/main.css" media="all")
     body
-        div(class="sidebar")
-            ul
-                li
-                    a(href="#") Stuff
-                li
-                    a(href="#") More stuff
-                li
-                    a(href="#") even more stuff
-                li
-                    a(href="#") hey look, more stuff
-    div(class="content")
-        p Content
+        #sidebar
+            .profile
+                .image
+                p @IyadAssaf
+
+                .social
+                    ul
+                        li
+                            .github.mega-octicon.octicon-mark-github
+                        li
+                            span
+                                img.twitter(src="/assets/images/twitter_icon_32px.png")
+
+            .desc
+                p Nodejs middleware, ObjC and all things code fan, audio hacker.
+            //- ul.sidebar-nav
+            //-     li.sidebar-brand
+            //-         a Posts
+            //-     li.sidebar-brand
+            //-         a Posts
+            //-     li.sidebar-brand
+            //-         a Posts
+
+        #content
+            .container-fluid
+                .row
+                    .col-lg-12
+
+
+            //- picture
+            //- div
+                //- img(class="profile", src="https://avatars3.githubusercontent.com/u/2248805?v=2&s=460")
+        //- div(class="content")
+        //-     p Content
+        //-
+        //-     button.btn.btn-success.btn-lg Herrow!

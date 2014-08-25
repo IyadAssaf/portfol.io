@@ -55,21 +55,30 @@ module.exports = function (grunt) {
 		},
 		sass: {
 			dist: {
+				options: {
+					loadPath: [
+						// bootstrap
+						'public/assets/bower_components/bootstrap-sass-official/assets/stylesheets',
+
+						// icons
+						'public/assets/bower_components/octicons/octicons'
+					]
+				},
 				files: {
-					'public/assets/styles/main.css': 'styles/main.scss'
+					'public/assets/styles/main.css': ['styles/main.scss', 'styles/utility/**/*.scss']
 				}
 			}
 		},
 		watch: {
 			jade: {
-				files: ['views/jade/*.jade'],
+				files: ['views/jade/**/*.jade'],
 				tasks: ['jade'],
 				options: {
 					spawn: false,
 				}
 			},
 			styles: {
-				files: ['styles/*.scss'],
+				files: ['styles/**/**/*.scss'],
 				tasks: ['sass'],
 				options: {
 					spawn: false,

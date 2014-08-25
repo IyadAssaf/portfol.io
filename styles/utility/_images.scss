@@ -1,0 +1,36 @@
+/**
+ * @mixin border-raduus
+ * @param $radius {Float} Border radius value
+ */
+@mixin border-radius ($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+};
+
+/**
+ * @mixin circle-image
+ * @param $url {String} Url to image
+ * @param $height {Float + px} Image height in px
+ * @param $width {Float + px} Image width in px
+ */
+@mixin circle-image ($url, $height, $width) {
+    height: $height;
+    width: $width;
+
+    @include background-image($url);
+    @include border-radius(75px);
+    @include shadow();
+};
+
+
+/**
+ * @mixin background-image
+ * @param $url {String} Url to image
+ */
+@mixin background-image ($url) {
+    background-image:url($url);
+    background-size: 100%;
+    background-repeat: no-repeat;
+};
