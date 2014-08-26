@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 		jshint: {
             options: {
                 node : true,        // node variables
+				browser : true,     // browser variables
                 curly: true,        // disallow functions without curly braces
                 eqeqeq: true,       // === and  !== instead of == and !=
                 strict: true,       // have to enable strict mode
@@ -61,7 +62,10 @@ module.exports = function (grunt) {
 
 					// content holder and admin content editor
 					'app/public/app/templates/content.html': 'views/jade/templates/content.jade',
-					'app/public/app/templates/adminContent.html': 'views/jade/templates/adminContent.jade'
+					'app/public/app/templates/adminContent.html': 'views/jade/templates/adminContent.jade',
+
+					// feed
+					'app/public/app/templates/feed.html': 'views/jade/templates/feed.jade'
 				}
 			}
 		},
@@ -116,7 +120,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Tasks
-	grunt.registerTask('sassMin', 'sass', 'cssmin');
+	grunt.registerTask('sassMin', ['sass', 'cssmin']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('build', ['jade', 'sassMin']);

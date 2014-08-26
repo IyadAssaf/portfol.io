@@ -1,1 +1,11 @@
-//- Text editor goes here
+//- Template for blog post / twitter status / github activity content
+link(rel="stylesheet" href="/assets/bower_components/medium-editor/dist/css/medium-editor.css")
+link(rel="stylesheet" href="/assets/bower_components/medium-editor/dist/css/themes/default.css")
+
+.columns
+    .contentHeader
+        .title.editable(style="outline: 0px solid transparent; color: rgb(0, 104, 0) !important;", contenteditable="true", data-placeholder="Enter a title", data-medium-element="true")
+        .subtitle.editable(style="outline: 0px solid transparent;", contenteditable="true", data-placeholder="Enter a subtitle, it should be witty and amusing", data-medium-element="true")
+
+    .contentBody
+        .text.editable(style="outline: 0px solid transparent;" contenteditable="true" data-placeholder="Write your post" data-medium-element="true")

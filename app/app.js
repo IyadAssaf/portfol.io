@@ -28,7 +28,6 @@ App.prototype._listen = function () {
     self.app = express()
     .set('port', self.cfg.port)
     .use(require('cookie-parser')())
-    .use(require('./routes/main.js')())
     .use(express.static(process.cwd() + '/app/public'))
     .use(require('express-session')({
         secret: 'secret',
@@ -42,18 +41,9 @@ App.prototype._listen = function () {
     self.socket = require('socket.io')(self.server);
 
     // controllers for data and transport to client
-    new (require('./controllers/main.js'))(self)
-
-    // redirect if none of the paths are caught
-    self.app.use(function (req, res, next) {
-        return !res.headersSent ? (function () {
-            res.redirect('/');
-            next();
-        })() : (function () {
-            next();
-        })();
-    });
-
+    new (require('./controllers/main.js'))(self);
+    new (require('./routes/main.js'))(self);
+    
     self.server.listen(self.app.get('port'), function () {
         console.log('Listening to port ' + self.cfg.port);
 

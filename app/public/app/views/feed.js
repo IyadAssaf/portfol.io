@@ -1,5 +1,7 @@
-define(['backbone', 'underscore'],
-        function (Backbone) {
+define(['backbone', 'underscore',
+        'text!templates/feed.html'],
+        function (Backbone, _,
+        FeedTemplate) {
     'use strict';
 
     /**
@@ -13,11 +15,11 @@ define(['backbone', 'underscore'],
         },
 
         render: function () {
-
+            this.$el.html(_.template(FeedTemplate, {}));
         },
 
         el: '#content'
     });
-    
+
     return FeedView;
 });

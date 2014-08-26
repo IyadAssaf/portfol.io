@@ -15,6 +15,7 @@
             underscore: '../assets/bower_components/underscore/underscore',
             backbone: '../assets/bower_components/backbone/backbone',
             text: '../assets/bower_components/requirejs-text/text',
+            MediumEditor: '../assets/bower_components/medium-editor/dist/js/medium-editor',
             io: '../socket.io/socket.io'
         },
     	shim: {
@@ -30,6 +31,9 @@
     		},
             bson: {
                 'exports': 'bson'
+            },
+            MediumEditor: {
+                'exports': 'MediumEditor'
             }
         },
         deps: ['backbone'],
