@@ -32,8 +32,10 @@
     "grunt-contrib-sass": "^0.7.4",
     "grunt-mocha-test": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-contrib-cssmin": "^0.10.0"
+    "grunt-contrib-cssmin": "^0.10.0",
+    "passport": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "redis": "^0.12.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

@@ -1,7 +1,8 @@
 var App,
     self,
     express = require('express')
-    fs = require('fs');
+    fs = require('fs'),
+    redis = require('redis');
 
 /**
  * @class App
@@ -28,6 +29,10 @@ App.prototype._listen = function () {
     self.app = express()
     .set('port', self.cfg.port)
     .use(require('cookie-parser')())
+    .use(require('body-parser').json())
+    .use(require('body-parser').urlencoded({
+        extended: true
+    }))
     .use(express.static(process.cwd() + '/app/public'))
     .use(require('express-session')({
         secret: 'secret',
@@ -42,8 +47,9 @@ App.prototype._listen = function () {
 
     // controllers for data and transport to client
     new (require('./controllers/main.js'))(self);
+    new (require('./auth/main.js'))(self);
     new (require('./routes/main.js'))(self);
-    
+
     self.server.listen(self.app.get('port'), function () {
         console.log('Listening to port ' + self.cfg.port);
 

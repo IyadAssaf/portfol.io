@@ -12,7 +12,7 @@ body {
     font-size: 20;
     color:#A2A2A2;
     font-family:'Raleway', sans-serif;
-    background-image:url(http://buyersupplierconnect.com/wp-content/uploads/2014/02/light-grey-background-pattern-i31.jpg);
+    background-image:url(/assets/images/greybg.png);
 
     a {
         cursor: pointer;
@@ -140,7 +140,7 @@ body {
 
     #content {
         height: 100%;
-        padding-left: 11px;
+        padding-left: 0px;
 
         .columns {
             width: 100%;
@@ -198,6 +198,33 @@ body {
                 };
             };
         };
+        .feedHeader {
+            height: 114px; margin-bottom: 16px; position: fixed;
+        };
+
+        .feedBody {
+
+            // margin-left: 16px;
+            position: absolute;
+            top: 148;
+
+            a {
+                text-decoration:none !important;
+                color: #000000;
+                cursor: pointer;
+            }
+
+            .feedBox {
+                width: 31%;
+                margin-left: 26px;
+                margin-bottom: 26px;
+
+                height: 200px;
+                border: solid;
+                border-color: rgb(165, 165, 165);
+                float: left;
+            };
+        };
     };
 };
 
@@ -209,49 +236,3 @@ body {
         width: 0px;
     };
 };
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
-}

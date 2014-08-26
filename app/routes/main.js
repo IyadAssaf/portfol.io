@@ -5,28 +5,27 @@ module.exports = function (appl) {
         app = appl.app
 
     .get('/', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
+        return res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end();
     })
 
     .get('/post/:title', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
+        return res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end();
+    })
+
+    .get('/login', function (req, res) {
+        return res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end();
     })
 
     .get('/admin', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
+        return req.isAuthenticated() ? res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end() : res.redirect('/login');
     })
 
-    .get('/admin/create', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
+    .get('/admin/post', function (req, res) {
+        return req.isAuthenticated() ? res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end() : res.redirect('/login');
     })
 
-    .get('/admin/edit/:post', function (req, res) {
-        res.write(fs.readFileSync(process.cwd() + '/views/layout.html'));
-        res.end();
+    .get('/admin/post/:postId', function (req, res) {
+        return req.isAuthenticated() ? res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end() : res.redirect('/login');
     })
 
     .use(function (req, res) {

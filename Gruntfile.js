@@ -65,7 +65,10 @@ module.exports = function (grunt) {
 					'app/public/app/templates/adminContent.html': 'views/jade/templates/adminContent.jade',
 
 					// feed
-					'app/public/app/templates/feed.html': 'views/jade/templates/feed.jade'
+					'app/public/app/templates/feed.html': 'views/jade/templates/feed.jade',
+
+					// admin login
+					'app/public/app/templates/login.html': 'views/jade/templates/login.jade'
 				}
 			}
 		},

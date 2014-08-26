@@ -10,9 +10,8 @@ define(['backbone', 'underscore', 'jquery',
     var ContentView = Backbone.View.extend({
         initialize: function (content) {
             this.render(content);
-
+            
             var sidebarWidth = 250;
-
             $(window).scroll(function () {
                 var position = $(document).scrollLeft();
                 if(position > 0) {

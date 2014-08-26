@@ -1,7 +1,17 @@
+
 //- Template for feed
-.columns
+.feedHeader.columns
     .contentHeader
         .title Activity
 
         .subtitle.
             Code & thoughts
+
+.feedBody
+    <% _.each(feed, function (label) { %>
+
+    a(href="/post/gsdkgfahj")
+        .feedBox
+            .feedTitle <%= label %>
+
+    <% }); %>
