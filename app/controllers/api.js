@@ -1,8 +1,8 @@
 'use strict';
 
-var DataHandler, self;
+var Api, self;
 
-module.exports = DataHandler = function (_appl) {
+module.exports = Api = function (_appl) {
 
     this.appl = _appl;
 

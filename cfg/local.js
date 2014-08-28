@@ -3,7 +3,12 @@
  */
 module.exports = require('util')._extend(require('./common.js'), {
     name: 'local',
-    verbose: 2,
-    mongo: process.env.MONGO_IYAD,
+    log: ['general', 'error'],
+    mongo: 'mongodb://0.0.0.0:27017/portfolio',
+    redis: {
+        host: '127.0.0.1',
+        port: '6379',
+        auth: ''
+    },
     port: 3000
-};
+});

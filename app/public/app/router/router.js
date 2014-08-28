@@ -27,6 +27,7 @@ define(['backbone', 'jquery',
                 },
                 'admin': function () {
                     new SideBarView({ admin: true });
+                    new AdminEditorView();
                 },
                 'admin/post': function () {
                     new SideBarView({ admin: true });

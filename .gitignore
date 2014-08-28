@@ -6,3 +6,4 @@ views/layout.html
 app/public/app/templates
 app/public/assets/styles
 app/public/assets/bower_components
+cfg/.local

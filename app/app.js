@@ -6,11 +6,15 @@ var App,
 
 /**
  * @class App
+ * @todo security: https://www.youtube.com/watch?v=vE5kCqwoSUg
  */
 module.exports = App = function (cfg) {
-    this.cfg = cfg;
 
     self = this;
+    self.cfg = cfg;
+
+    // setup logger
+    self.log = new (require('./util/logger'))(self.cfg.log || ['all']);
 
     return self._listen();
 };
@@ -38,7 +42,11 @@ App.prototype._listen = function () {
         secret: 'secret',
         key: 'portfol.io.sid',
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        cookie: {
+            httpOnly: true,
+            secure: true
+        }
     }));
 
     // setup server, bind with socket.io and listen
@@ -51,7 +59,7 @@ App.prototype._listen = function () {
     new (require('./routes/main.js'))(self);
 
     self.server.listen(self.app.get('port'), function () {
-        console.log('Listening to port ' + self.cfg.port);
+        self.log('general', 'App running on port ' + self.cfg.port);
 
         // resolve the promise
         d.resolve(self);

@@ -5,11 +5,13 @@
   "main": "index.js",
   "author": "",
   "scripts": {
+    "postinstall": "node_modules/.bin/grunt build && node_modules/.bin/bower install",
     "start": "node index.js --scheme=production",
-    "local": "node index.js --scheme=local",
+    "local": "node_modules/.bin/grunt config && mongod --fork -f ./cfg/db/mongo.conf | redis-server ./cfg/db/redis.conf | node index.js --scheme=local",
     "dev": "node_modules/.bin/grunt test && node index.js --scheme=dev",
-    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/grunt build",
-    "test": "./node_modules/.bin/grunt test"
+    "build": "node_modules/.bin/grunt sassMin",
+    "watch": "node_modules/.bin/grunt watch",
+    "test": "node_modules/.bin/grunt test"
   },
   "dependencies": {
     "express": "^4.8.4",
@@ -35,7 +37,17 @@
     "grunt-contrib-cssmin": "^0.10.0",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0",
-    "redis": "^0.12.1"
+    "redis": "^0.12.1",
+    "octonode": "^0.6.4",
+    "node-twitter": "^0.5.2",
+    "lusca": "^1.0.1",
+    "kraken": "^0.2.0",
+    "grunt-mkdir": "^0.1.2",
+    "chalk": "^0.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "install": "^0.1.7",
+    "npm": "^1.4.24",
+    "grunt-retire": "^0.2.6"
+  }
 }

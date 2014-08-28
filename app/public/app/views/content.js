@@ -12,15 +12,6 @@ define(['backbone', 'underscore', 'jquery',
             this.render(content);
             
             var sidebarWidth = 250;
-            $(window).scroll(function () {
-                var position = $(document).scrollLeft();
-                if(position > 0) {
-                    $('#sidebar').css('width', (position * -1) + sidebarWidth);
-                } else {
-                    $('#sidebar').css('width', sidebarWidth);
-                }
-            });
-
             $(window).resize(function () {
                 if(!window.matchMedia('(max-width: 767px)').matches) {
                     var position = $(document).scrollLeft();

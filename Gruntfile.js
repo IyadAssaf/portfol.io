@@ -112,7 +112,14 @@ module.exports = function (grunt) {
 					spawn: false,
 				}
 			}
-		}
+		},
+		mkdir: {
+            all: {
+                options: {
+                    create: ['cfg/.local/mongo', 'cfg/.local/redis']
+                }
+            }
+        }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -121,12 +128,14 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-mkdir');
 
     // Tasks
 	grunt.registerTask('sassMin', ['sass', 'cssmin']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('build', ['jade', 'sassMin']);
+	grunt.registerTask('config', ['mkdir']);
 
 	// Default should be run after npm install
 	grunt.registerTask('default', ['test']);

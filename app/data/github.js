@@ -1,6 +1,7 @@
 'use strict';
 
 var Github, self,
+    octonode = require('octonode'),
     q = require('q');
 
 /**
@@ -15,11 +16,19 @@ module.exports = Github = function (appl) {
 
 Github.prototype.events = function () {
     var d = q.defer();
-    
-    needle.get('https://api.github.com/users/' + self.username + '/events', function (err, resp) {
-        console.log(resp.body);
-        d[err ? 'reject' : 'resolve'](err ? err : resp.body);
+
+    var octo = octonode.client(),
+        user = octo.user('IyadAssaf');
+
+    user.events(['PushEvent'], function (err, resp) {
+        d[err ? 'reject' : 'resolve'](err ? err : resp);
     });
+
+    // types:
+    // PushEvent - Pushed code
+    // PublicEvent - Created repo
+    // WatchEvent - Started watching
+    // more @ https://developer.github.com/v3/activity/events/types/
 
     return d.promise;
 };

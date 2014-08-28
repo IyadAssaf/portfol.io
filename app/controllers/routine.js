@@ -1,7 +1,7 @@
 'use strict';
 
 var Routine, self,
-    cron = require('cron'),
+    cron = require('cron').CronJob,
     q = require('q');
 
 /**
@@ -10,24 +10,20 @@ var Routine, self,
  */
 module.exports = Routine = function (appl) {
 
-    // db models
-    this.models = appl.models;
-    
-    this.github = new (require('../data/github'))(appl);
-    this.twitter = new (require('../data/twitter'))(appl);
+    // sync class
+    var sync = this.sync = new (require('./sync'))(appl);
+
+    // Every day at 12:30 am
+    var timing = '00 30 12 * * 1-7'
+    // Every second
+    // var timing = '* * * * * *';
+    // Every one min
+    // var timing = '*/1 * * * *';
+
+    new cron(timing, function () {
+        console.log('Running script at: ' + new Date());
+        sync.run();
+    }, null, true);
 
     self = this;
-};
-
-Routine.prototype.listen = function () {
-
-    // feed model
-    // this.data.feed
-
-    // post model
-    // this.data.post
-};
-
-Routine.prototype.schedule = function () {
-
 };

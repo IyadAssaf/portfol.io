@@ -1,17 +1,18 @@
 
 //- Template for feed
-.feedHeader.columns
-    .contentHeader
-        .title Activity
+.feedHolder
+    .feedHeader(style="padding: 0px; margin-top: 8px; margin-left: 29px;")
+        .contentHeader
+            .title Activity
 
-        .subtitle.
-            Code & thoughts
+            .subtitle.
+                Code & thoughts
 
-.feedBody
-    <% _.each(feed, function (label) { %>
+    .feedBody
+        <% _.each(feed, function (label) { %>
 
-    a(href="/post/gsdkgfahj")
-        .feedBox
-            .feedTitle <%= label %>
+        a(href="/post/gsdkgfahj")
+            .feedBox
+                .feedTitle <%= label %>
 
-    <% }); %>
+        <% }); %>

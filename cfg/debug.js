@@ -3,7 +3,7 @@
  */
 module.exports = require('util')._extend(require('./common.js'), {
     name: 'debug',
-    verbose: 5,
+    log: ['all'],
     mongo: process.env.MONGO_IYAD,
     port: 3000
 };

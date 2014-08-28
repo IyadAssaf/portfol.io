@@ -60,12 +60,14 @@ body {
 #sidebar {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 0px;
     width: 250px;
     height: 100%;
-    margin-left: -250px;
+    margin-left: 0px;
     overflow-y: auto;
     background: #333;
+    top: 0px;
+
 
     // @include transition(0.5s);
 
@@ -134,27 +136,21 @@ body {
  * Main
  */
 #main {
-    width: 100%;
-    padding: 15px;
     height: 100%;
+    margin-left: 250px;
+    // margin-left: 225px;
+    // padding-right: 19px;
+    // padding-left: 23px;
+    // position: absolute;
 
     #content {
         height: 100%;
-        padding-left: 0px;
 
-        .columns {
-            width: 100%;
-            height: 98%;
-            margin: 27px;
-            margin-top: 14px;
-            -webkit-column-count: 2;
-            -webkit-column-width: 400px;
-            -webkit-column-gap: 25px;
-
-            -webkit-column-break-inside: avoid;
-            -moz-column-break-inside:avoid;
-            -moz-page-break-inside:avoid;
-            page-break-inside: avoid;
+        // blog posts
+        .contentHolder {
+            padding-right: 100px;
+            padding-left: 34px;
+            padding-top: 16px;
         };
 
         .contentHeader {
@@ -175,6 +171,7 @@ body {
             .subtitle {
                 font-weight: 100;
                 padding-bottom: 12;
+                font-size: 21;
 
                 p {
                     font-weight: 100;
@@ -189,6 +186,7 @@ body {
                 line-height: 1.6;
                 font-weight: 100;
                 font-size: 17px;
+                padding-right: 42px;
 
                 p {
                     color: rgb(131, 131, 131);
@@ -198,15 +196,22 @@ body {
                 };
             };
         };
+
+        // feed holder
+        .feedHolder {
+
+        };
+
         .feedHeader {
-            height: 114px; margin-bottom: 16px; position: fixed;
+            height: 114px;
+            margin-bottom: 16px;
+            position: fixed;
+            z-index: 1000;
         };
 
         .feedBody {
-
-            // margin-left: 16px;
-            position: absolute;
-            top: 148;
+            position: relative;
+            top: 153;
 
             a {
                 text-decoration:none !important;
@@ -215,9 +220,11 @@ body {
             }
 
             .feedBox {
+
                 width: 31%;
                 margin-left: 26px;
                 margin-bottom: 26px;
+                background: #EBEBEB;
 
                 height: 200px;
                 border: solid;
@@ -225,6 +232,10 @@ body {
                 float: left;
             };
         };
+    };
+
+    footer {
+        height: 200px;
     };
 };
 
