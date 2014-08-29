@@ -212,6 +212,8 @@ body {
         .feedBody {
             position: relative;
             top: 153;
+            margin-left: 100px;
+            margin-right: 100px;
 
             a {
                 text-decoration:none !important;
@@ -221,15 +223,13 @@ body {
 
             .feedBox {
 
-                width: 31%;
-                margin-left: 26px;
-                margin-bottom: 26px;
-                background: #EBEBEB;
 
-                height: 200px;
+                width: 100%;
+                padding-left: 0px;
+                margin-bottom: 26px;
+                height: 74px;
                 border: solid;
-                border-color: rgb(165, 165, 165);
-                float: left;
+                border-color: #a5a5a5;
             };
         };
     };

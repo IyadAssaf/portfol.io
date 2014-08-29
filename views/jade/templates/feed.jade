@@ -11,8 +11,8 @@
     .feedBody
         <% _.each(feed, function (label) { %>
 
-        a(href="/post/gsdkgfahj")
+        a(href!="/post/<%= label %>")
             .feedBox
-                .feedTitle <%= label %>
+                .feedTitle <%- label %>
 
         <% }); %>
