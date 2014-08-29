@@ -4,9 +4,15 @@ build:
   # The steps that will be executed on build
   steps:
 
+    # Install ruby & sass
+    - script:
+        name: Install ruby & sass
+        code: |
+          sudo apt-get install ruby && sudo gem install sass
+
     # Install node module packages
     - npm-install
-    
+
     # Build the project, and run the tests
     - npm-test
 
