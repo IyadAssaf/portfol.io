@@ -138,10 +138,6 @@ body {
 #main {
     height: 100%;
     margin-left: 250px;
-    // margin-left: 225px;
-    // padding-right: 19px;
-    // padding-left: 23px;
-    // position: absolute;
 
     #content {
         height: 100%;
@@ -222,15 +218,16 @@ body {
             }
 
             .feedBox {
-                width: 100%;
                 padding-left: 0px;
                 margin-bottom: 26px;
                 min-height: 74px;
             };
 
             .feedTitle {
-                font-size: 21px;
-                color: green;
+                a {
+                    font-size: 21px;
+                    color: rgb(34, 80, 34);
+                };
             };
 
             .feedDesc {

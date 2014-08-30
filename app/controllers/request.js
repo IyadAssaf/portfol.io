@@ -2,16 +2,23 @@
 
 var RequestHandler, self;
 
-module.exports = RequestHandler = function (_appl) {
+module.exports = RequestHandler = function (main) {
 
-    this.io = _appl.socket;
-    this.app = _appl.app;
+    self = this;
 
-    this.io.on('connection', function (socket) {
+    self.appl = main.appl;
+    self.models = main.models;
+
+    self.io = self.appl.socket;
+    self.app = self.appl.app;
+
+    self.io.on('connection', function (socket) {
 
         // request sorted feed of twitter / gh and post activity
         socket.on('feed', function (query, next) {
-
+            self.models.feed.query({ sort: { date: -1 } }).then(function (feeds) {
+                next(feeds);
+            });
         });
 
         // load particular feed post
@@ -24,6 +31,4 @@ module.exports = RequestHandler = function (_appl) {
             // check if AUTH'd
         });
     });
-
-    self = this;
 };

@@ -9,11 +9,44 @@
                 Code & thoughts
 
     .feedBody
+
+        //- loop through feed
         <% _.each(feed, function (item) { %>
 
-        a(href!="/post/<%= item.url %>")
-            .feedBox
-                .feedTitle <%- item.title %>
-                .feedDesc <%- item.desc %>
+        //- twitter
+        <% if(item.origin === 'twitter') { %>
+        .feedBox
+            .feedTitle
+                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.content.text %>
 
+        //- github
+        <% } else if (item.origin === 'github') { %>
+        .feedBox
+            //- PushEvent
+            <% if(item.type === 'PushEvent') { %>
+            .feedTitle
+                a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
+
+            <% _.each(item.content.commits, function (commit) { %>
+            a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
+                .feedDesc
+                    a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
+
+            <% }); %>
+
+            //- WatchEvent
+            <% } else if(item.type === 'WatchEvent') { %>
+            .feedTitle
+                a(href!="https://github.com/<%- item.subject.name %>") Starred <%- item.subject.name %>
+
+
+            //- CreateEvent
+            <% } else if (item.type === 'CreateEvent') {%>
+            .feedTitle
+                a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
+            <% } else if (item.type === 'PublicEvent') {%>
+            .feedTitle
+                a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
+            <% } %>
+        <% } %>
         <% }); %>

@@ -5,7 +5,7 @@ module.exports = function (appl) {
     this.appl = appl;
     this.cfg = appl.cfg;
 
-    this.request = new (require('./request.js'))(appl);
     this.models = new (require('./api.js'))(appl);
     this.routine = new (require('./routine.js'))(this);
+    this.responder = new (require('./request.js'))(this);
 };

@@ -23,7 +23,7 @@ module.exports = Sync = function (routine) {
 
 /**
  * @class run
- * @desc Run the github and twitter classes to update the feed model 
+ * @desc Run the github and twitter classes to update the feed model
  */
 Sync.prototype.run = function () {
 

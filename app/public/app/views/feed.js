@@ -1,7 +1,9 @@
 define(['backbone', 'underscore', 'jquery',
+        'modules/request',
         'text!templates/feed.html'],
         function (Backbone, _, $,
-        FeedTemplate) {
+            Request,
+            FeedTemplate) {
     'use strict';
 
     /**
@@ -20,93 +22,23 @@ define(['backbone', 'underscore', 'jquery',
         },
 
         render: function () {
-            this.$el.html(_.template(FeedTemplate, {
-                feed: [{
-                    title: 'Some post',
-                    desc: 'fhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg k',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }, {
-                    title: 'Some post',
-                    desc: 'This is one of the posts..',
-                    url: 'Some post'
-                }]
-            }));
+
+            self = this;
+
+            var feedContent = [];
+            Request.request('feed').then(function (feed) {
+                feedContent = feed;
+            }, function () {
+                feedContent = [];
+            }).then(function () {
+                console.log(JSON.stringify(feedContent, null, 4));
+                self.$el.html(_.template(FeedTemplate, { feed: feedContent }));
+            });
         },
 
         el: '#content'
-    });
+    }),
+        self;
 
     return FeedView;
 });
