@@ -1,29 +1,99 @@
 'use strict';
 
-var Feed, self, needle = require('needle');
+var Feed, self,
+    q = require('q');
 
 /**
  * @class Feed
  * @desc Data from Github and Twitter and blog posts
  */
-module.exports = Feed = function (appl) {
+module.exports = Feed = function (api) {
 
     self = this;
+    self.db = api.db;
+    self.ObjectId = self.db.ObjectId;
+    self.appl = api.appl;
+    self.log = self.appl.log;
+
+    self.Model = self.db.model('Feed', new self.db.Schema({
+
+        // Github or Twitter id
+        id      :   String,
+
+        // origin of content (github or twitter)
+        origin  :   String,
+
+        // type of item:
+        //      **github**
+        //      PushEvent
+        //      WatchEvent
+        //      CreateEvent
+        //      **twitter**
+        //      status
+        type    :   String,
+
+        // Related user/repo
+        subject :   Object,
+
+        // Content associated with the action (commit message/status message)
+        content:    Object,
+
+        // raw reponse data
+        _json   :   Object,
+
+        date    :   Date
+    }));
 };
 
 /**
- * @class query
+ * @method add
  */
-Feed.prototype.query = function () {
+Feed.prototype.add = function (obj) {
 
+    var item = new self.Model(obj),
+        d = q.defer();
+
+    // make sure it doesn't already exist
+    self.Model
+    .find({ id: obj.id, origin: obj.origin })
+    .limit(1)
+    .exec(function (err, hasItem) {
+        ((hasItem.length || err) ? function () {
+            d.reject(item);
+        } : function () {
+            self.log('data', 'Inserting ' + item.origin + ' item: ' + item.id);
+            item.save(function (_err) {
+                d[_err ? 'reject' : 'resolve'](_err ? _err : item);
+            });
+        })();
+    });
+
+    return d.promise;
 };
 
+/**
+ * @method query
+ */
+Feed.prototype.query = function (args) {
+
+    var d = q.defer();
+
+    self.Model
+    .find((args && args.query) || {})
+    .limit((args && args.limit) || null)
+    .skip((args && args.skip) || null)
+    .exec(function (err, feed) {
+        d[err ? 'reject' : 'resolve'](err ? err : feed);
+    });
+
+    return d.promise;
+};
 
 /**
  * @method update
  */
 Feed.prototype.update = function () {
-    
+
 };
 
 /**

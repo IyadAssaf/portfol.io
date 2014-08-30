@@ -18,6 +18,9 @@ module.exports = Logger = function (config) {
         warning: {
             color: chalk.bold.black
         },
+        data: {
+            color: chalk.gray
+        },
         error: {
             color: chalk.bgRed
         }

@@ -3,7 +3,7 @@
  */
 module.exports = require('util')._extend(require('./common.js'), {
     name: 'production',
-    log: ['error'],
+    log: ['all'],
     port: process.env.PORT || 8000,
     mongo: process.env.MONGO_IYAD,
     redis: {
@@ -16,6 +16,9 @@ module.exports = require('util')._extend(require('./common.js'), {
         secret: process.env.TWITTER_SECRET,
         tokenKey: process.env.TWITTER_TOKEN_KEY,
         tokenSecret: process.env.TWITTER_TOKEN_SECRET
+    },
+    github: {
+        token: process.env.GITHUB_TOKEN
     },
     admin: {
         username: 'username',

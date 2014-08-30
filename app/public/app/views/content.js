@@ -1,6 +1,7 @@
-define(['backbone', 'underscore', 'jquery',
+define(['backbone', 'underscore', 'jquery', 'markdown',
         'text!templates/content.html'],
-        function (Backbone, _, $, ContentTemplate) {
+        function (Backbone, _, $, markdown,
+            ContentTemplate) {
     'use strict';
 
     /**
@@ -8,9 +9,9 @@ define(['backbone', 'underscore', 'jquery',
      * @extends Backbone.View
      */
     var ContentView = Backbone.View.extend({
-        initialize: function (content) {
-            this.render(content);
-            
+        initialize: function () {
+            this.render();
+
             var sidebarWidth = 250;
             $(window).resize(function () {
                 if(!window.matchMedia('(max-width: 767px)').matches) {
@@ -26,8 +27,14 @@ define(['backbone', 'underscore', 'jquery',
             });
         },
 
-        render: function (content) {
-            this.$el.html(_.template(ContentTemplate, content || {}));
+        render: function () {
+            var content = {
+                title: 'Penguins are cool?',
+                subtitle: 'How far will we go to have a way to be like Pengwen Cooper ',
+                body: markdown.toHTML('**ghsjdfkghajsdgfh** \n \n adshfkgashf asdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfah')
+            };
+
+            this.$el.html(_.template(ContentTemplate, content));
         },
 
         el: '#content'

@@ -16,7 +16,8 @@
             backbone: '../assets/bower_components/backbone/backbone',
             text: '../assets/bower_components/requirejs-text/text',
             MediumEditor: '../assets/bower_components/medium-editor/dist/js/medium-editor',
-            io: '../socket.io/socket.io'
+            io: '../socket.io/socket.io',
+            markdown: '../assets/bower_components/markdown/lib/markdown'
         },
     	shim: {
     		underscore: {
@@ -34,17 +35,17 @@
             },
             MediumEditor: {
                 'exports': 'MediumEditor'
+            },
+            markdown: {
+                'exports': 'markdown',
             }
         },
         deps: ['backbone'],
         priority: []
     });
-
+    
     // require the router
     require(['router/router'], function (AppRouter) {
         return new AppRouter();
     });
-    // require(['views/app', 'router/router'], function (AppView, AppRouter) {
-    //     return new AppView() && new AppRouter();
-    // });
 })();

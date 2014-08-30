@@ -8,10 +8,16 @@ var Routine, self,
  * @class Routine
  * @desc Update the db with twitter and gh infomation
  */
-module.exports = Routine = function (appl) {
+module.exports = Routine = function (main) {
+
+    self = this;
+    self.main = main;
+    self.appl = main.appl;
+    self.log = self.appl.log;
 
     // sync class
-    var sync = this.sync = new (require('./sync'))(appl);
+    var sync = self.sync = new (require('./sync'))(self);
+    sync.run();
 
     // Every day at 12:30 am
     var timing = '00 30 12 * * 1-7'
@@ -21,9 +27,7 @@ module.exports = Routine = function (appl) {
     // var timing = '*/1 * * * *';
 
     new cron(timing, function () {
-        console.log('Running script at: ' + new Date());
+        self.log('general', 'Running script at: ' + new Date());
         sync.run();
     }, null, true);
-
-    self = this;
 };

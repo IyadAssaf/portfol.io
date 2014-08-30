@@ -9,10 +9,11 @@
                 Code & thoughts
 
     .feedBody
-        <% _.each(feed, function (label) { %>
+        <% _.each(feed, function (item) { %>
 
-        a(href!="/post/<%= label %>")
+        a(href!="/post/<%= item.url %>")
             .feedBox
-                .feedTitle <%- label %>
+                .feedTitle <%- item.title %>
+                .feedDesc <%- item.desc %>
 
         <% }); %>

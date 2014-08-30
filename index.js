@@ -9,7 +9,8 @@ var Application = function (profile) {
     new (require('./app/app'))(profile)
     .then(function (resp) {
 
-    }).fail(function (error) {
+    })
+    .fail(function (error) {
         // error was thrown
         console.error(profile.scheme + ': Error: ' + error);
     })
@@ -17,7 +18,7 @@ var Application = function (profile) {
 
     // clone the cfg and remove sesitive parts for logging
     profile = require('util')._extend({}, profile)
-    return delete profile.mongo && delete profile.redis && delete profile.admin && profile;
+    return delete profile.mongo && delete profile.redis && delete profile.admin && delete profile.twitter && delete profile.github && profile;
 };
 
 /**

@@ -21,7 +21,87 @@ define(['backbone', 'underscore', 'jquery',
 
         render: function () {
             this.$el.html(_.template(FeedTemplate, {
-                feed: ['hsjdf', 'sdfgsfdg', 'sdfgsdfgf', 'sdfgsdfgsdg', 'sfgsdfg', 'ghfgsahdkj','hsjdf', 'sdfgsfdg', 'sdfgsdfgf', 'sdfgsdfgsdg', 'sfgsdfg', 'ghfgsahdkj', 'hsjdf', 'sdfgsfdg', 'sdfgsdfgf', 'sdfgsdfgsdg', 'sfgsdfg', 'ghfgsahdkj','hsjdf', 'sdfgsfdg', 'sdfgsdfgf', 'sdfgsdfgsdg', 'sfgsdfg', 'ghfgsahdkj']
+                feed: [{
+                    title: 'Some post',
+                    desc: 'fhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg kfhjsghkjdfskgfhjsdg sgfhsdk gfdhsgfag fghsdh fjgkasfghsad gfahsdgf ajsgkdhf gasdhjfg ashjgf adjsgfads gfhagsd fjagsdf ajshdf gahjsdfg k',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }, {
+                    title: 'Some post',
+                    desc: 'This is one of the posts..',
+                    url: 'Some post'
+                }]
             }));
         },
 

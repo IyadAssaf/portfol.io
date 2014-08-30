@@ -4,9 +4,9 @@ build:
   # The steps that will be executed on build
   steps:
 
-    # Install ruby & sass
+    # Install sass
     - script:
-        name: Install ruby & sass
+        name: Install sass
         code: |
           sudo gem install sass
 
