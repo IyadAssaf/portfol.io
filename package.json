@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "",
   "scripts": {
-    "postinstall": "node_modules/.bin/grunt build && node_modules/.bin/bower install",
+    "postinstall": "sudo gem install sass && node_modules/.bin/grunt build && node_modules/.bin/bower install",
     "start": "node index.js --scheme=production",
     "local": "node_modules/.bin/grunt config && mongod --fork -f ./cfg/db/mongo.conf | redis-server ./cfg/db/redis.conf | node index.js --scheme=local",
     "dev": "node_modules/.bin/grunt test && node index.js --scheme=dev",
