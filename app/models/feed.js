@@ -84,8 +84,6 @@ Feed.prototype.query = function (args) {
     .skip((args && args.skip) || null)
     .sort((args && args.sort) || null)
     .exec(function (err, feed) {
-
-        console.log(JSON.stringify(feed, null, 4));
         d[err ? 'reject' : 'resolve'](err ? err : feed);
     });
 

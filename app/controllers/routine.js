@@ -17,7 +17,8 @@ module.exports = Routine = function (main) {
 
     // sync class
     var sync = self.sync = new (require('./sync'))(self);
-    
+    sync.run();
+
     // Every day at 12:30 am
     var timing = '00 30 12 * * 1-7'
     // Every second
