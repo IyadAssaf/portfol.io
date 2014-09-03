@@ -20,7 +20,7 @@
     "requirejs": "~2.1.14",
     "angularAMD": "~0.2.1",
     "backbone": "~1.1.2",
-    "bootstrap-sass-official": "~3.2.0",
+    "bootstrap-sass-official": "~3.2.0+2",
     "octicons": "~2.1.1",
     "medium-editor": "~1.9.0",
     "requirejs-text": "~2.0.12",
