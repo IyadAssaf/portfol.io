@@ -43,11 +43,10 @@
     "lusca": "^1.0.1",
     "kraken": "^0.2.0",
     "grunt-mkdir": "^0.1.2",
-    "chalk": "^0.5.1"
+    "chalk": "^0.5.1",
+    "less": "^1.7.5"
   },
   "devDependencies": {
-    "install": "^0.1.7",
-    "npm": "^1.4.24",
     "grunt-retire": "^0.2.6"
   }
 }
