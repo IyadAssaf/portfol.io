@@ -29,8 +29,8 @@ define(['backbone', 'underscore', 'jquery', 'markdown',
 
         render: function () {
             var content = {
-                title: 'Penguins are cool?',
-                subtitle: 'How far will we go to have a way to be like Pengwen Cooper ',
+                title: 'This is my title',
+                subtitle: 'This is some super cool subtitle',
                 body: markdown.toHTML('**ghsjdfkghajsdgfh** \n \n adshfkgashf asdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfah')
             };
 
