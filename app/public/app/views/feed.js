@@ -1,7 +1,7 @@
-define(['backbone', 'underscore', 'jquery',
+define(['backbone', 'underscore', 'jquery', 'moment',
         'modules/request',
         'text!templates/feed.html'],
-        function (Backbone, _, $,
+        function (Backbone, _, $, moment,
             Request,
             FeedTemplate) {
     'use strict';
@@ -27,10 +27,15 @@ define(['backbone', 'underscore', 'jquery',
 
             var feedContent = [];
             Request.request('feed').then(function (feed) {
+
+                for(var i in feed) {
+                    feed[i].prettyDate = feed[i].date ? moment(feed[i].date).format("MMM Do YY") : undefined;
+                }
+
                 feedContent = feed;
             }, function () {
                 feedContent = [];
-            }).then(function () {                
+            }).then(function () {
                 self.$el.html(_.template(FeedTemplate, { feed: feedContent }));
             });
         },

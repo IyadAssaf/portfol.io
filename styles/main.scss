@@ -11,7 +11,7 @@
 body {
     font-size: 20;
     color:#A2A2A2;
-    // font-family:'Raleway', sans-serif;
+    font-family:'Raleway', sans-serif;
     background-image:url(/assets/images/greybg.png);
 
     a {
@@ -135,6 +135,7 @@ body {
 #main {
     height: 100%;
     margin-left: 250px;
+    min-width: 400px;
 
     #content {
         height: 100%;
@@ -226,6 +227,11 @@ body {
                     font-size: 17px;
                     color: #666666;
                 };
+
+                .date {
+                    color: black;
+                    font-style: italic;
+                };
             };
 
             .feedDesc {
@@ -242,8 +248,8 @@ body {
 /**
  * Smaller screen support
  */
-@media (max-width:768px) {
-    #sidebar {
-        width: 0px;
-    };
-};
+// @media (max-width:768px) {
+//     #sidebar {
+//         width: 0px;
+//     };
+// };

@@ -17,7 +17,7 @@
         <% if(item.origin === 'twitter') { %>
         .feedBox
             .feedTitle
-                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.prettyDate %>: <%- item.content.text %>
+                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <span class="date"><%- item.prettyDate %>:</span> <%- item.content.text %>
 
         //- github
         <% } else if (item.origin === 'github') { %>
@@ -25,7 +25,7 @@
             //- PushEvent
             <% if(item.type === 'PushEvent') { %>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <%- item.prettyDate %>: Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
+                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
 
             <% _.each(item.content.commits, function (commit) { %>
             a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
@@ -39,16 +39,16 @@
             //- WatchEvent
             <% } else if(item.type === 'WatchEvent') { %>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <%- item.prettyDate %>: Starred <%- item.subject.name %>
+                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Starred <%- item.subject.name %>
 
 
             //- CreateEvent
             <% } else if (item.type === 'CreateEvent') {%>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <%- item.prettyDate %>: Created <%- item.subject.name %>
+                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Created <%- item.subject.name %>
             <% } else if (item.type === 'PublicEvent') {%>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <%- item.prettyDate %>: <%- item.subject.name %> is now public
+                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> <%- item.subject.name %> is now public
             <% } %>
         <% } %>
         <% }); %>
