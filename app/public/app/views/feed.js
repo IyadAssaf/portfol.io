@@ -29,7 +29,7 @@ define(['backbone', 'underscore', 'jquery', 'moment',
             Request.request('feed').then(function (feed) {
 
                 for(var i in feed) {
-                    feed[i].prettyDate = feed[i].date ? moment(feed[i].date).format("MMM Do YY") : undefined;
+                    feed[i].prettyDate = feed[i].date ? moment(feed[i].date).format('MMM Do YY') : undefined;
                 }
 
                 feedContent = feed;

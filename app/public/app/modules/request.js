@@ -1,4 +1,5 @@
 define(['io', 'q'], function (io, q) {
+    'use strict';
 
     var RequestHandler = function () {
         self = this;
