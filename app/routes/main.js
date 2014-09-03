@@ -1,9 +1,10 @@
 module.exports = function (appl) {
     'use strict';
 
-    var fs = require('fs'),
-        app = appl.app
+    var fs = require('fs');
 
+    appl.app
+    
     .get('/', function (req, res) {
         return res.write(fs.readFileSync(process.cwd() + '/views/layout.html')) && res.end();
     })

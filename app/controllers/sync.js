@@ -1,7 +1,6 @@
 'use strict';
 
-var Sync, self,
-    cron = require('cron').CronJob;
+var Sync, self;
 
 /**
  * @class Sync
@@ -26,6 +25,7 @@ module.exports = Sync = function (routine) {
  * @desc Run the github and twitter classes to update the feed model
  */
 Sync.prototype.run = function () {
+    /* jshint camelcase: false */
 
     // load meta from mongo to see what the last gh and twitter events were recieved
     self.github.events().then(function (activity) {

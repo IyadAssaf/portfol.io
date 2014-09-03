@@ -9,6 +9,7 @@ var Twitter, self,
  * @desc Request data from Twitter
  */
 module.exports = Twitter = function (appl) {
+    /* jshint camelcase: false */
 
     self = this;
 
@@ -30,10 +31,8 @@ module.exports = Twitter = function (appl) {
 Twitter.prototype.events = function (options) {
     var d = q.defer();
 
-    // https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline
-    self.twit ? self.twit.get('/statuses/user_timeline.json', options || {}, function (resp) {
-        d[!resp ? 'reject' : 'resolve'](!resp ? 'error' : resp);
-    }) : d.reject('error');
-
-    return d.promise;
+    // return d.promise, in a fancy way. It's not that cryptic if you read it, honest.
+    return (self.twit ? self.twit.get('/statuses/user_timeline.json', options || {}, function (resp) {
+        return d[!resp ? 'reject' : 'resolve'](!resp ? 'error' : resp);
+    }) && d: d.reject('error') && d).promise;
 };

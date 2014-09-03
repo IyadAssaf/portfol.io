@@ -1,8 +1,7 @@
 'use strict';
 
 var Routine, self,
-    cron = require('cron').CronJob,
-    q = require('q');
+    cron = require('cron').CronJob;
 
 /**
  * @class Routine

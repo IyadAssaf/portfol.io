@@ -15,33 +15,64 @@ module.exports = function (grunt) {
             }
         },
 		jshint: {
-            options: {
-                node : true,        // node variables
-				browser : true,     // browser variables
-                curly: true,        // disallow functions without curly braces
-                eqeqeq: true,       // === and  !== instead of == and !=
-                strict: true,       // have to enable strict mode
-                undef: true,        // disallow globally defined variables
-                noarg: true,        // prevents depreciated javascript functions
-                loopfunc: true,     // disallow functions inside loops
-                immed: true,        // disallow immediate functions, they need ()
-                indent: 4,          // force tab indentation to be set to 4
-                quotmark: 'single', // force use of single quotation marks
-                camelcase: true,    // forces camel case - note this needs to be ignored when using json apis
-                unused: true,       // disallows unused variables
-                eqnull: true,       // allow variable comparison with null or undefined
-                laxcomma: true,     // allow commas before variables or keys
-                globals: {
-					describe: true,
-					it: true,
-					beforeEach: true,
-					before: true,
-					define: true,
-					require: true
+			browser: {
+	            options: {
+					browser : true,     // browser variables
+	                curly: true,        // disallow functions without curly braces
+	                eqeqeq: true,       // === and  !== instead of == and !=
+	                strict: true,       // have to enable strict mode
+	                undef: true,        // disallow globally defined variables
+	                noarg: true,        // prevents depreciated javascript functions
+	                loopfunc: true,     // disallow functions inside loops
+	                immed: true,        // disallow immediate functions, they need ()
+	                indent: 4,          // force tab indentation to be set to 4
+	                quotmark: 'single', // force use of single quotation marks
+	                camelcase: true,    // forces camel case - note this needs to be ignored when using json apis
+	                unused: true,       // disallows unused variables
+	                eqnull: true,       // allow variable comparison with null or undefined
+	                laxcomma: true,     // allow commas before variables or keys
+	                globals: {
+						console: true,
+						describe: true,
+						it: true,
+						beforeEach: true,
+						before: true,
+						define: true,
+						require: true
+					},
+	                reporter: require('jshint-stylish')
+	            },
+				src: ['app/public/app/**/**/**/*.js']
+			},
+			node: {
+				options: {
+					node : true,        // node variables
+					curly: true,        // disallow functions without curly braces
+					eqeqeq: true,       // === and  !== instead of == and !=
+					strict: true,       // have to enable strict mode
+					undef: true,        // disallow globally defined variables
+					noarg: true,        // prevents depreciated javascript functions
+					loopfunc: true,     // disallow functions inside loops
+					immed: true,        // disallow immediate functions, they need ()
+					indent: 4,          // force tab indentation to be set to 4
+					quotmark: 'single', // force use of single quotation marks
+					camelcase: true,    // forces camel case - note this needs to be ignored when using json apis
+					unused: true,       // disallows unused variables
+					eqnull: true,       // allow variable comparison with null or undefined
+					laxcomma: true,     // allow commas before variables or keys
+					globals: {
+						describe: true,
+						it: true,
+						beforeEach: true,
+						before: true,
+						define: true,
+						require: true
+					},
+					reporter: require('jshint-stylish'),
+					ignores: ['app/public/**/**/**/**/*.js']
 				},
-                reporter: require('jshint-stylish')
-            },
-            uses_defaults: ['app/public/app/**/**/**/*.js', 'test/**/**/**/*.js']
+				src: ['index.js', 'app/**/**/**/*.js', 'test/**/**/**/**/*.js'],
+			}
 		},
 		jade: {
 			debug: {

@@ -1,8 +1,8 @@
+'use strict';
+
 var App,
     self,
-    express = require('express')
-    fs = require('fs'),
-    redis = require('redis');
+    express = require('express');
 
 /**
  * @class App

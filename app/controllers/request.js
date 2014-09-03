@@ -13,6 +13,7 @@ module.exports = RequestHandler = function (main) {
     self.app = self.appl.app;
 
     self.io.on('connection', function (socket) {
+        /* jshint unused: false */
 
         // request sorted feed of twitter / gh and post activity
         socket.on('feed', function (query, next) {
