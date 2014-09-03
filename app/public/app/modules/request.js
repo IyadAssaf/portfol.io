@@ -3,8 +3,6 @@ define(['io', 'q'], function (io, q) {
     var RequestHandler = function () {
         self = this;
         self.socket = io();
-
-        console.log('Socket');
     },
         self;
 
@@ -14,7 +12,7 @@ define(['io', 'q'], function (io, q) {
         self.socket.emit(event || '', args || {}, function (resp) {
             d.resolve(resp);
         });
-        
+
         return d.promise;
     };
 

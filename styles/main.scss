@@ -68,9 +68,6 @@ body {
     background: #333;
     top: 0px;
 
-
-    // @include transition(0.5s);
-
     .profile {
         margin-top: 50px;
         margin-left: 50px;
@@ -226,8 +223,8 @@ body {
 
             .feedTitle {
                 a {
-                    font-size: 21px;
-                    color: rgb(34, 80, 34);
+                    font-size: 17px;
+                    color: #666666;
                 };
             };
 

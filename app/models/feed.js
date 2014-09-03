@@ -1,6 +1,7 @@
 'use strict';
 
 var Feed, self,
+    moment = require('moment'),
     q = require('q');
 
 /**
@@ -62,6 +63,10 @@ Feed.prototype.add = function (obj) {
             d.reject(item);
         } : function () {
             self.log('data', 'Inserting ' + item.origin + ' item: ' + item.id);
+
+            // Prettify the date for easier UI templating
+            item.prettyDate = obj.date ? moment(obj.date).format("MMM Do YY") : undefined;
+
             item.save(function (_err) {
                 d[_err ? 'reject' : 'resolve'](_err ? _err : item);
             });

@@ -18,7 +18,8 @@
             MediumEditor: '../assets/bower_components/medium-editor/dist/js/medium-editor',
             io: '../socket.io/socket.io',
             markdown: '../assets/bower_components/markdown/lib/markdown',
-            q: '../assets/bower_components/q/q'
+            q: '../assets/bower_components/q/q',
+            moment: '../assets/bower_components/moment/moment'
         },
     	shim: {
     		underscore: {

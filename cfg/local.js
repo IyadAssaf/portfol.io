@@ -10,5 +10,14 @@ module.exports = require('util')._extend(require('./common.js'), {
         port: '6379',
         auth: ''
     },
+    twitter: {
+        key: process.env.TWITTER_KEY,
+        secret: process.env.TWITTER_SECRET,
+        tokenKey: process.env.TWITTER_TOKEN_KEY,
+        tokenSecret: process.env.TWITTER_TOKEN_SECRET
+    },
+    github: {
+        token: process.env.GITHUB_TOKEN
+    },
     port: 3000
 });

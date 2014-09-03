@@ -4,18 +4,18 @@ var Api, self;
 
 module.exports = Api = function (_appl) {
 
-    this.appl = _appl;
+    self = this;
+
+    self.appl = _appl;
 
     /**
      * Connect to mongo server
      */
-    this.db = require('mongoose').connect(this.appl.cfg.mongo);
+    self.db = require('mongoose').connect(self.appl.cfg.mongo);
 
     /**
      * Models
      */
-    this.feed = new (require('../models/feed.js'))(this);
-    this.post = new (require('../models/post.js'))(this);
-
-    self = this;
+    self.feed = new (require('../models/feed.js'))(self);
+    self.post = new (require('../models/post.js'))(self);
 };

@@ -30,8 +30,7 @@ define(['backbone', 'underscore', 'jquery',
                 feedContent = feed;
             }, function () {
                 feedContent = [];
-            }).then(function () {
-                console.log(JSON.stringify(feedContent, null, 4));
+            }).then(function () {                
                 self.$el.html(_.template(FeedTemplate, { feed: feedContent }));
             });
         },
