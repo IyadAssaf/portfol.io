@@ -1,3 +1,5 @@
 source :rubygems
 
-gem "sass", "~> 3.4.2"
+group :assets do
+  gem "sass", "~> 3.4.2"
+end
