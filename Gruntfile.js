@@ -160,8 +160,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-mkdir');
-	grunt.registerTask('heroku:production', 'clean less mincss uglify');
-	grunt.registerTask('heroku:development', 'clean less mincss');
 
     // Tasks
 	grunt.registerTask('sassMin', ['sass', 'cssmin']);
