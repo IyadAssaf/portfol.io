@@ -160,14 +160,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-mkdir');
-
+	
     // Tasks
 	grunt.registerTask('sassMin', ['sass', 'cssmin']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('validate', ['jshint', 'test']);
 	grunt.registerTask('build', ['jade', 'sassMin']);
 	grunt.registerTask('config', ['mkdir']);
 
 	// Default should be run after npm install
-	grunt.registerTask('default', ['test']);
+	grunt.registerTask('default', ['validate']);
 };
