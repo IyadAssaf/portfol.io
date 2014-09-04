@@ -14,7 +14,7 @@ define(['backbone', 'underscore', 'jquery', 'moment',
     var FeedView = Backbone.View.extend({
         initialize: function () {
             this.render();
-            
+
             $(window).scroll(function () {
                 var opactiy = (($(document).scrollTop() / 148) * -1) + 1;
                 $('.feedHeader').css('opacity', opactiy);
@@ -36,7 +36,7 @@ define(['backbone', 'underscore', 'jquery', 'moment',
             }, function () {
                 feedContent = [];
             }).then(function () {
-                self.$el.html(_.template(FeedTemplate, { feed: feedContent }));
+                self.$el.html(_.template(FeedTemplate)({ feed: feedContent }));
             });
         },
 

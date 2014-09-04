@@ -34,5 +34,5 @@ Twitter.prototype.events = function (options) {
     // return d.promise, in a fancy way. It's not that cryptic if you read it, honest.
     return (self.twit ? self.twit.get('/statuses/user_timeline.json', options || {}, function (resp) {
         return d[!resp ? 'reject' : 'resolve'](!resp ? 'error' : resp);
-    }) && d: d.reject('error') && d).promise;
+    }) && d : d.reject('error') && d).promise;
 };

@@ -34,7 +34,7 @@ define(['backbone', 'underscore', 'jquery', 'markdown',
                 body: markdown.toHTML('**ghsjdfkghajsdgfh** \n \n adshfkgashf asdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfahasdfghjas gfgasfk agdsjfhas gsghjf gafgasgfsgfah')
             };
 
-            this.$el.html(_.template(ContentTemplate, content));
+            this.$el.html(_.template(ContentTemplate)(content));
         },
 
         el: '#content'

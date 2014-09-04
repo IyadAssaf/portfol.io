@@ -12,7 +12,7 @@ define(['backbone', 'underscore', 'MediumEditor', 'text!templates/adminContent.h
         },
 
         render: function () {
-            this.$el.html(_.template(AdminContentTemplate, {}));
+            this.$el.html(_.template(AdminContentTemplate)({}));
             this.editor = new MediumEditor('.editable', {
                 anchorInputPlaceholder: 'Type a link',
                 buttons: ['bold', 'italic', 'quote'],

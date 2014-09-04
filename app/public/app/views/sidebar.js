@@ -16,7 +16,7 @@ define(['backbone', 'underscore', 'cfg',
 
         render: function (args) {
             // render correct sidebar depending on args (regular/admin)
-            return !(args && args.admin) ? this.$el.html(_.template(SideBarTemplate, cfg.profile)) : this.$el.html(_.template(AdminSidebarTemplate, cfg.profile));
+            return !(args && args.admin) ? this.$el.html(_.template(SideBarTemplate)(cfg.profile)) : this.$el.html(_.template(AdminSidebarTemplate)(cfg.profile));
         },
 
         el: '#sidebar'

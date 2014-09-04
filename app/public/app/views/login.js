@@ -15,7 +15,7 @@ define(['backbone', 'underscore',
         },
 
         render: function () {
-            this.$el.html(_.template(LoginTemplate, {}));
+            this.$el.html(_.template(LoginTemplate)({}));
         },
 
         el: '#content'
