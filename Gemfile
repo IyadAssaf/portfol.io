@@ -1,9 +1,5 @@
+ruby '2.0.0'
+
 source :rubygems
 
-group :test, :production do
-    gem "sass", "~> 3.4.2"
-end
-
-group :development do
-    gem "sass", "~> 3.4.2"
-end
+gem "sass", "~> 3.4.2"
