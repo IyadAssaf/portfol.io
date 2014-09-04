@@ -4,7 +4,7 @@
 module.exports = require('util')._extend(require('./common.js'), {
     name: 'test',
     log: ['info'],
-    mongo: process.env.MONGO_IYAD,
+    mongo: 'mongodb://0.0.0.0:27017/portfolio',
     port: 3000,
     redis: {
         host: '0.0.0.0',

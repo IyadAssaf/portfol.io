@@ -14,7 +14,7 @@ module.exports = Authentication = function (appl) {
 
     .use(passport.initialize())
     .use(passport.session());
-    
+
     passport.serializeUser(function (user, done) {
         done(null, user);
     });
@@ -23,7 +23,7 @@ module.exports = Authentication = function (appl) {
         done(null, user);
     });
 
-    passport.use(new LocalStrategy(function (username, password, done) {    
+    passport.use(new LocalStrategy(function (username, password, done) {
         done(null, (username === appl.cfg.admin.username && password === appl.cfg.admin.password));
     }));
 
@@ -36,7 +36,6 @@ module.exports = Authentication = function (appl) {
         req.logout();
         res.redirect('/');
     });
-
 
     self = this;
 };

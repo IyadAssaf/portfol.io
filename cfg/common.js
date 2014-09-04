@@ -8,7 +8,9 @@ module.exports = {
         },
         twitter: {
             username: 'iyadassaf'
-        }
+        },
+        image: 'https://avatars.githubusercontent.com/u/2248805?v=2',
+        bio: 'All the things developer, Audio hacker.'
     },
     twitter: {
         key: process.env.TWITTER_KEY,
@@ -23,5 +25,6 @@ module.exports = {
         username: 'username',
         password: 'password'
     },
-    cron: '00 30 12 * * 1-7'
+    cron: '00 30 12 * * 1-7',
+    mongo: process.env.PORTFOLIO_MONGO
 };

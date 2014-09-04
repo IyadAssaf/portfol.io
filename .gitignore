@@ -4,6 +4,8 @@ node_modules
 npm-debug.log
 views/layout.html
 app/public/app/templates
+app/public/app/cfg.js
 app/public/assets/styles
 app/public/assets/bower_components
 cfg/.local
+.elasticbeanstalk/

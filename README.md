@@ -6,4 +6,11 @@ portfol.io
 Portfolio and blog utilising twitter and github activity.
 
 #### Configuration
-Enter your config options inside ./cfg/common.js & ./app/public/app/cfg.js.
+Enter your config options inside ./cfg/common.js and/or set the following enviroment variables:
+
+`PORTFOLIO_MONGO`
+`TWITTER_KEY`
+`TWITTER_SECRET`
+`TWITTER_TOKEN_KEY`
+`TWITTER_TOKEN_SECRET`
+`GITHUB_TOKEN`

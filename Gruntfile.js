@@ -1,7 +1,12 @@
 module.exports = function (grunt) {
 	'use strict';
 
-    // Grunt configuration
+	var fs = require('fs'),
+		_ = require('underscore');
+
+	/*!
+	 * Grunt configuration
+	 */
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
         mochaTest: {
@@ -85,21 +90,21 @@ module.exports = function (grunt) {
 				files: {
 
 					// main layout
-					'views/layout.html': 'views/jade/layout.jade',
+					'templates/views/layout.html': 'templates/views/jade/layout.jade',
 
 					// side bars
-					'app/public/app/templates/sidebar.html': 'views/jade/templates/sidebar.jade',
-					'app/public/app/templates/adminSidebar.html': 'views/jade/templates/adminSidebar.jade',
+					'app/public/app/templates/sidebar.html': 'templates/views/jade/templates/sidebar.jade',
+					'app/public/app/templates/adminSidebar.html': 'templates/views/jade/templates/adminSidebar.jade',
 
 					// content holder and admin content editor
-					'app/public/app/templates/content.html': 'views/jade/templates/content.jade',
-					'app/public/app/templates/adminContent.html': 'views/jade/templates/adminContent.jade',
+					'app/public/app/templates/content.html': 'templates/views/jade/templates/content.jade',
+					'app/public/app/templates/adminContent.html': 'templates/views/jade/templates/adminContent.jade',
 
 					// feed
-					'app/public/app/templates/feed.html': 'views/jade/templates/feed.jade',
+					'app/public/app/templates/feed.html': 'templates/views/jade/templates/feed.jade',
 
 					// admin login
-					'app/public/app/templates/login.html': 'views/jade/templates/login.jade'
+					'app/public/app/templates/login.html': 'templates/views/jade/templates/login.jade'
 				}
 			}
 		},
@@ -115,7 +120,7 @@ module.exports = function (grunt) {
 					]
 				},
 				files: {
-					'app/public/assets/styles/main.css': ['styles/main.scss', 'styles/utility/**/*.scss']
+					'app/public/assets/styles/main.css': ['templates/styles/main.scss', 'templates/styles/utility/**/*.scss']
 				}
 			}
 		},
@@ -130,14 +135,14 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			jade: {
-				files: ['views/jade/**/*.jade'],
+				files: ['templates/views/jade/**/*.jade'],
 				tasks: ['jade'],
 				options: {
 					spawn: false,
 				}
 			},
 			styles: {
-				files: ['styles/**/**/*.scss'],
+				files: ['templates/styles/**/**/*.scss'],
 				tasks: ['sassMin'],
 				options: {
 					spawn: false,
@@ -153,6 +158,9 @@ module.exports = function (grunt) {
         }
 	});
 
+	/*!
+	 * Load tasks
+	 */
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -160,13 +168,23 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-mkdir');
-	
-    // Tasks
+
+    /*!
+	 * Tasks
+	 */
+	// Create public cfg file
+	grunt.registerTask('cfg-public', function () {
+
+		var cfg = fs.readFileSync('./templates/cfg.js').toString(),
+			profile = require('./cfg/common.js').profile;
+
+		fs.writeFileSync('./app/public/app/cfg.js', _.template(cfg)(profile));
+	});
 	grunt.registerTask('sassMin', ['sass', 'cssmin']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('validate', ['jshint', 'test']);
-	grunt.registerTask('build', ['jade', 'sassMin']);
+	grunt.registerTask('build', ['jade', 'sassMin', 'cfg-public']);
 	grunt.registerTask('config', ['mkdir']);
 
 	// Default should be run after npm install

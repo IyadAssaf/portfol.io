@@ -1,9 +1,9 @@
 /**
- * @desc debug configuration
+ * @desc dev configuration
  */
 module.exports = require('util')._extend(require('./common.js'), {
-    name: 'debug',
+    name: 'dev',
     log: ['all'],
-    mongo: process.env.MONGO_IYAD,
+    mongo: process.env.PORTFOLIO_MONGO,
     port: 3000
-};
+});
