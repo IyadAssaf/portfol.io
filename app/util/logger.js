@@ -6,7 +6,7 @@ var Logger, self,
 module.exports = Logger = function (config) {
 
     self = this;
-    self.config = config;
+    self.config = config || ['all'];
 
     this.profiles = {
         general: {

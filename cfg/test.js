@@ -10,15 +10,5 @@ module.exports = require('util')._extend(require('./common.js'), {
         host: '0.0.0.0',
         port: '6379',
         pass: ''
-    },
-    twitter: {
-        key: process.env.TWITTER_KEY,
-        secret: process.env.TWITTER_SECRET,
-        tokenKey: process.env.TWITTER_TOKEN_KEY,
-        tokenSecret: process.env.TWITTER_TOKEN_SECRET
-    },
-    admin: {
-        username: 'username',
-        password: 'password'
     }
 };
