@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         mochaTest: {
             server: {
                 options: {
-                    reporter: 'Nyan',
+                    reporter: 'spec',
                     growl: true,
                     colors: true
                 },
