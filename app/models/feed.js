@@ -85,11 +85,28 @@ Feed.prototype.query = function (args) {
     .skip((args && args.skip) || null)
     .sort((args && args.sort) || null)
     .exec(function (err, feed) {
+
+        // Check for group, cast to feed
+        feed = (args && args.group) ?  (function () {
+
+            // if the method exists in the organise file, call it with the feed data, otherwise simply return the feed
+            var method = (new (require('../util/organise'))())[args.group];
+            return method ? method(feed) : feed;
+
+        })() : feed;
         d[err ? 'reject' : 'resolve'](err ? err : feed);
     });
 
     return d.promise;
 };
+
+/**
+ * @method
+ */
+Feed.prototype._organiseByDate = function () {
+
+};
+
 
 /**
  * @method update

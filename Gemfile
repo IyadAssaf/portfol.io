@@ -1,5 +1,3 @@
-ruby '2.0.0'
-
-source :rubygems
+source 'https://rubygems.org'
 
 gem "sass", "~> 3.4.2"

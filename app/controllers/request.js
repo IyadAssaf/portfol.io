@@ -11,13 +11,13 @@ module.exports = RequestHandler = function (main) {
 
     self.io = self.appl.socket;
     self.app = self.appl.app;
-
+    
     self.io.on('connection', function (socket) {
         /* jshint unused: false */
 
         // request sorted feed of twitter / gh and post activity
         socket.on('feed', function (query, next) {
-            self.models.feed.query({ sort: { date: -1 } }).then(function (feeds) {
+            self.models.feed.query({ sort: { date: -1 }, group: 'byDay' }).then(function (feeds) {
                 next(feeds);
             });
         });

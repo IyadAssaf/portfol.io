@@ -50,5 +50,8 @@
   },
   "devDependencies": {
     "grunt-retire": "^0.2.6"
-  }
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
 }

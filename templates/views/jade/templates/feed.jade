@@ -10,44 +10,68 @@
 
     .feedBody
 
-        //- loop through feed
-        <% _.each(feed, function (item) { %>
+        //- Looping through date organised feed - see ./app/public/app/views/feed.js for more info on what's going on here
+        <% var datedItem; for(var i in feed) {  var json = feed[i]; for(var key in json) { var prettyDate = moment(key).format('MMM Do YY'); datedArr = json[key]; %>
 
-        //- twitter
-        <% if(item.origin === 'twitter') { %>
-        .feedBox
-            .feedTitle
-                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <span class="date"><%- item.prettyDate %>:</span> <%- item.content.text %>
+        //-
+        //- for each date
+        //-
 
-        //- github
-        <% } else if (item.origin === 'github') { %>
         .feedBox
+            .date <%= prettyDate %>
+
+            //-
+            //- for each item on that day
+            //-
+
+            <% for(var item in datedArr) { item = datedArr[item]; %>
+
+            <% if(item.origin === 'github') { %>
+
+            //-
+            //- If github posts
+            //-
+
             //- PushEvent
             <% if(item.type === 'PushEvent') { %>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
+                a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
 
+            //- loop through commits
             <% _.each(item.content.commits, function (commit) { %>
             a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
                 .feedDesc
                     ul
                         li
-                            a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
+                            .commit
+                                a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
             <% }); %>
 
             //- WatchEvent
             <% } else if(item.type === 'WatchEvent') { %>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Starred <%- item.subject.name %>
-
+                a(href!="https://github.com/<%- item.subject.name %>") Starred <%- item.subject.name %>
 
             //- CreateEvent
             <% } else if (item.type === 'CreateEvent') {%>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> Created <%- item.subject.name %>
+                a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
+
+            //- PublicEvent
             <% } else if (item.type === 'PublicEvent') {%>
             .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <span class="date"><%- item.prettyDate %>:</span> <%- item.subject.name %> is now public
+                a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
             <% } %>
-        <% } %>
-        <% }); %>
+
+            <% } else if(item.origin === 'twitter') { %>
+
+            //-
+            //- If twitter posts
+            //-
+            .feedTitle
+                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.content.text %>
+
+            <% } %>
+            <% } %>
+
+        <% } %><% } %>

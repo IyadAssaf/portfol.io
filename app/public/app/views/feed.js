@@ -25,13 +25,26 @@ define(['backbone', 'underscore', 'jquery', 'moment',
 
             self = this;
 
+            /*!
+             * This should be happening on the feed frontend:
+             * for(var i in feed) {
+             *     var json = feed[i];
+             *
+             *     for(var key in json) {
+             *         var prettyDate = moment(key).format('MMM Do YY'),
+             *             datedArr = json[key];
+             *
+             *         for(var item in datedArr) {
+             *             item = datedArr[item];
+             *             //- This is an actual feed item
+             *             console.log(JSON.stringify(item));
+             *         }
+             *     }
+             * }
+             */
+
             var feedContent = [];
             Request.request('feed').then(function (feed) {
-
-                for(var i in feed) {
-                    feed[i].prettyDate = feed[i].date ? moment(feed[i].date).format('MMM Do YY') : undefined;
-                }
-
                 feedContent = feed;
             }, function () {
                 feedContent = [];
