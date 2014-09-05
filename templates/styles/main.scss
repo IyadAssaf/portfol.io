@@ -150,10 +150,10 @@ body {
         .contentHeader {
 
             .title {
-                font-size: 52px;
+                font-size: 68px;
                 font-weight: 200;
                 color: rgb(0, 104, 0);
-                padding-bottom: 11;
+                // padding-bottom: 11;
 
                 p {
                     font-weight: 200;
@@ -165,7 +165,7 @@ body {
             .subtitle {
                 font-weight: 100;
                 padding-bottom: 12;
-                font-size: 21;
+                font-size: 24;
 
                 p {
                     font-weight: 100;
@@ -193,7 +193,8 @@ body {
 
         // feed holder
         .feedHolder {
-
+            padding-left: 26px;
+            padding-top: 15px;
         };
 
         .feedHeader {
@@ -206,7 +207,7 @@ body {
 
         .feedBody {
             position: relative;
-            top: 153;
+            top: 182;
             margin-left: 30px;
             margin-right: 100px;
 
@@ -233,7 +234,7 @@ body {
             };
 
             .feedBox {
-                padding-left: 0px;
+                padding-left: 16px;
                 padding-bottom: 27px;
             };
 
@@ -270,14 +271,12 @@ body {
 
                 .gh_action {
                     margin-right: 7px;
-                    // color: black;
                 };
 
                 .tw_action {
                     margin-right: 7px;
                     height: 12px;
-                    -webkit-filter: opacity(20%);
-                    -moz-filter: opacity(20%);
+                    opacity: 0.4;
                 };
             };
 

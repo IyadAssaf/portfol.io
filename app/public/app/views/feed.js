@@ -68,20 +68,26 @@ define(['backbone', 'underscore', 'jquery', 'moment',
                         }
                     });
 
+                    // feed icon hover
                     $('.feedTitle').each(function () {
 
                         var self = this, initialColor;
 
                         $(self).find('a').mouseover(function () {
-                            var $icon = $(self).find('.gh_action');
-                            initialColor = $icon.css('color');
-                            $icon.css('color', 'rgb(75, 70, 70)');
+                            var $ghIcon = $(self).find('.gh_action');
+                            initialColor = $ghIcon.css('color');
+                            $ghIcon.css('color', 'rgb(75, 70, 70)');
+
+                            var $twIcon = $(self).find('.tw_action');
+                            $twIcon.css('opacity', 0.8);
 
                         }).mouseout(function () {
                             var $icon = $(self).find('.gh_action');
                             $icon.css('color', initialColor);
-                        });
 
+                            var $twIcon = $(self).find('.tw_action');
+                            $twIcon.css('opacity', 0.4);
+                        });
                     });
 
                 });
