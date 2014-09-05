@@ -20,6 +20,7 @@
         .feedBox
             .date <%= prettyDate %>
 
+            .dayIcon.octicon.octicon-chevron-down
             .dayBox
                 //-
                 //- for each item on that day
@@ -36,7 +37,9 @@
                 //- PushEvent
                 <% if(item.type === 'PushEvent') { %>
                 .feedTitle
-                    a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
+                    .gh_action.octicon.octicon-repo-push
+                    <% var commitWord = 'commits'; if(item.content.commits.length === 1) { commitWord = 'commit'; } %>
+                    a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> <%- commitWord %> to <%- item.subject.name %>
 
                 //- loop through commits
                 <% _.each(item.content.commits, function (commit) { %>
@@ -51,16 +54,19 @@
                 //- WatchEvent
                 <% } else if(item.type === 'WatchEvent') { %>
                 .feedTitle
+                    .gh_action.octicon.octicon-star
                     a(href!="https://github.com/<%- item.subject.name %>") Starred <%- item.subject.name %>
 
                 //- CreateEvent
                 <% } else if (item.type === 'CreateEvent') {%>
                 .feedTitle
+                    .gh_action.octicon.octicon-repo
                     a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
 
                 //- PublicEvent
                 <% } else if (item.type === 'PublicEvent') {%>
                 .feedTitle
+                    .gh_action.octicon.octicon-repo
                     a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
                 <% } %>
 
@@ -70,6 +76,7 @@
                 //- If twitter posts
                 //-
                 .feedTitle
+                    img.tw_action(src="/assets/images/twitter_icon_32px.png")
                     a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.content.text %>
 
                 <% } %>

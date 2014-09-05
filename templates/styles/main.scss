@@ -237,15 +237,17 @@ body {
             };
 
             .date {
-                // color: #333;
-                // font-style: italic;
-                // font-weight: 100;
-
                 color: #333;
                 font-style: italic;
                 font-weight: 100;
                 margin-bottom: 8px;
                 font-size: 20px;
+                cursor: pointer;
+            };
+
+            .dayIcon {
+                margin-top: -30;
+                margin-left: -15;
             };
 
             .feedTitle {
@@ -254,6 +256,19 @@ body {
                     color: #5C5555;
                     font-family: 'Ubuntu', sans-serif;
                     line-height: 41px;
+                };
+
+
+                .gh_action {
+                    margin-right: 7px;
+                    // color: black;
+                };
+
+                .tw_action {
+                    margin-right: 7px;
+                    height: 12px;
+                    -webkit-filter: opacity(20%);
+                    -moz-filter: opacity(20%);
                 };
             };
 
@@ -264,7 +279,7 @@ body {
                 };
 
                 li:before {
-                    content: 'f';
+                    content: '\f01f';
                     font-family: github-octicons;
                     display: inline-block;
                     margin-left: -1.3em;

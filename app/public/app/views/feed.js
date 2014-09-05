@@ -49,7 +49,40 @@ define(['backbone', 'underscore', 'jquery', 'moment',
                 feedContent = [];
             }).then(function () {
                 self.$el.html(_.template(FeedTemplate)({ feed: feedContent }));
+
+                $(function () {
+
+                    // Toggle date boxes and icon
+                    $('.date').click(function () {
+                        var $dayBox = $(this).parent().find('.dayBox'),
+                            $dayIcon = $(this).parent().find('.dayIcon');
+
+                        if($dayBox.is(':visible')) {
+                            $dayBox.hide();
+                            $dayIcon.addClass('octicon-chevron-right');
+                            $dayIcon.removeClass('octicon-chevron-down');
+                        } else {
+                            $dayBox.show();
+                            $dayIcon.removeClass('octicon-chevron-right');
+                            $dayIcon.addClass('octicon-chevron-down');
+                        }
+
+
+
+                        // alert(dayBox.html());
+
+                        // if($(this).next('.dayIcon').hasClass('octicon octicon-chevron-right')) {
+                        //
+                        // }
+
+                        // alert('date');
+                    });
+                });
+
             });
+
+
+
         },
 
         el: '#content'
