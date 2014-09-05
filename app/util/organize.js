@@ -1,31 +1,31 @@
 'use strict';
 
-var Organise, self;
+var Organize, self;
 
 /**
- * @class Organise
- * @desc Organise data in various ways
+ * @class Organize
+ * @desc Organize data in various ways
  */
-module.exports = Organise = function () {
+module.exports = Organize = function () {
     self = this;
+};
+
+/**
+ * @method byDate
+ * @desc Groups an array of linear objects into days
+ * @params data {Array of JSON} with objects having a .date key
+ * @requires a valid Javascript Date() string for the .date
+ */
+Organize.prototype.byDay = function (data) {
 
     /*!
-     * Extend date to get the day of year
-     *
+     * @desc Extend date to get the beginning of any date
+     * @usage new Date().getFullDay();
      */
     Date.prototype.getFullDay = function () {
         var d = new Date(this);
         return new Date(d.getFullYear(), d.getMonth(), d.getDay());
     };
-};
-
-/**
- * @method byDate
- * @desc Groups an array of linear objects into days 
- * @params data {Array of JSON} with objects having a .date key
- * @requires a valid Javascript Date() string for the .date
- */
-Organise.prototype.byDay = function (data) {
 
     /*!
      * Turns this:
@@ -37,7 +37,7 @@ Organise.prototype.byDay = function (data) {
      *
      * Into this:
      * [{
-     *     "Fri Sep 05 2014 01:40:22 GMT+0100 (BST)": [{
+     *     "Fri Sep 05 2014 00:00:00 GMT+0100 (BST)": [{
      *         date: "Fri Sep 05 2014 01:40:26 GMT+0100 (BST)"
      *     }, {
      *         date: "Fri Sep 05 2014 01:40:22 GMT+0100 (BST)"
@@ -52,6 +52,10 @@ Organise.prototype.byDay = function (data) {
     for(var i in data) {
         item = data[i];
 
+        item.date = item.date ? new Date(item.date) : (function () {
+            throw new Error('Item does not have .date');
+        })();
+
         if(Number(item.date.getFullDay()) !== Number(selectedDate)) {
 
             /*!
@@ -61,7 +65,7 @@ Organise.prototype.byDay = function (data) {
              * }
              */
             var dateItem = {};
-            selectedDate = item.date.getFullDay();
+            selectedDate = item.date && item.date.getFullDay();
             dateItem[selectedDate] = [item];
             datedArray.push(dateItem);
 

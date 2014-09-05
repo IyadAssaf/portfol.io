@@ -42,7 +42,6 @@ define(['backbone', 'underscore', 'jquery', 'moment',
              *     }
              * }
              */
-
             var feedContent = [];
             Request.request('feed').then(function (feed) {
                 feedContent = feed;

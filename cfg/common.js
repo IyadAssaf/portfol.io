@@ -4,10 +4,10 @@
 module.exports = {
     profile: {
         github: {
-            username: 'iyadassaf'
+            username: 'IyadAssaf'
         },
         twitter: {
-            username: 'iyadassaf'
+            username: 'IyadAssaf'
         },
         image: 'https://avatars.githubusercontent.com/u/2248805?v=2',
         bio: 'All the things developer, Audio hacker.'

@@ -10,13 +10,13 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
         mochaTest: {
-            lib: {
+            server: {
                 options: {
-                    reporter: 'spec',
+                    reporter: 'Nyan',
                     growl: true,
                     colors: true
                 },
-                src: ['test/**/**/**/*.js']
+                src: ['test/server/unit/**/**/*Spec.js', 'test/server/unit/common.js']
             }
         },
 		jshint: {

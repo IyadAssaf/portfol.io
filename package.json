@@ -49,9 +49,10 @@
     "underscore": "^1.7.0"
   },
   "devDependencies": {
-    "grunt-retire": "^0.2.6"
-    },
-    "engines": {
-        "node": "0.10.x"
-    }
+    "grunt-retire": "^0.2.6",
+    "chai": "^1.9.1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
 }

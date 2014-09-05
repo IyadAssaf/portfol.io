@@ -11,7 +11,7 @@ module.exports = RequestHandler = function (main) {
 
     self.io = self.appl.socket;
     self.app = self.appl.app;
-    
+
     self.io.on('connection', function (socket) {
         /* jshint unused: false */
 

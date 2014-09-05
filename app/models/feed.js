@@ -89,8 +89,8 @@ Feed.prototype.query = function (args) {
         // Check for group, cast to feed
         feed = (args && args.group) ?  (function () {
 
-            // if the method exists in the organise file, call it with the feed data, otherwise simply return the feed
-            var method = (new (require('../util/organise'))())[args.group];
+            // if the method exists in the organize file, call it with the feed data, otherwise simply return the feed
+            var method = (new (require('../util/organize'))())[args.group];
             return method ? method(feed) : feed;
 
         })() : feed;
