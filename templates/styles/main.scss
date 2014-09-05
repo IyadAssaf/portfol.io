@@ -217,6 +217,11 @@ body {
                 font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
             };
 
+
+            .dayBox {
+                margin-left: 24px;
+            };
+
             .commit {
                 a  {
                     font-size: 15px;
@@ -257,7 +262,7 @@ body {
                 ul {
                     list-style: none;
                 };
-                
+
                 li:before {
                     content: 'f';
                     font-family: github-octicons;

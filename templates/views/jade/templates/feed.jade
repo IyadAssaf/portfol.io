@@ -20,58 +20,59 @@
         .feedBox
             .date <%= prettyDate %>
 
-            //-
-            //- for each item on that day
-            //-
+            .dayBox
+                //-
+                //- for each item on that day
+                //-
 
-            <% for(var item in datedArr) { item = datedArr[item]; %>
+                <% for(var item in datedArr) { item = datedArr[item]; %>
 
-            <% if(item.origin === 'github') { %>
+                <% if(item.origin === 'github') { %>
 
-            //-
-            //- If github posts
-            //-
+                //-
+                //- If github posts
+                //-
 
-            //- PushEvent
-            <% if(item.type === 'PushEvent') { %>
-            .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
+                //- PushEvent
+                <% if(item.type === 'PushEvent') { %>
+                .feedTitle
+                    a(href!="https://github.com/<%- item.subject.name %>") Pushed <%- item.content.commits.length %> commits to <%- item.subject.name %>
 
-            //- loop through commits
-            <% _.each(item.content.commits, function (commit) { %>
-            a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
-                .feedDesc
-                    ul
-                        li
-                            .commit
-                                a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
-            <% }); %>
+                //- loop through commits
+                <% _.each(item.content.commits, function (commit) { %>
+                a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
+                    .feedDesc
+                        ul
+                            li
+                                .commit
+                                    a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
+                <% }); %>
 
-            //- WatchEvent
-            <% } else if(item.type === 'WatchEvent') { %>
-            .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") Starred <%- item.subject.name %>
+                //- WatchEvent
+                <% } else if(item.type === 'WatchEvent') { %>
+                .feedTitle
+                    a(href!="https://github.com/<%- item.subject.name %>") Starred <%- item.subject.name %>
 
-            //- CreateEvent
-            <% } else if (item.type === 'CreateEvent') {%>
-            .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
+                //- CreateEvent
+                <% } else if (item.type === 'CreateEvent') {%>
+                .feedTitle
+                    a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
 
-            //- PublicEvent
-            <% } else if (item.type === 'PublicEvent') {%>
-            .feedTitle
-                a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
-            <% } %>
+                //- PublicEvent
+                <% } else if (item.type === 'PublicEvent') {%>
+                .feedTitle
+                    a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
+                <% } %>
 
-            <% } else if(item.origin === 'twitter') { %>
+                <% } else if(item.origin === 'twitter') { %>
 
-            //-
-            //- If twitter posts
-            //-
-            .feedTitle
-                a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.content.text %>
+                //-
+                //- If twitter posts
+                //-
+                .feedTitle
+                    a(href!="https://twitter.com/IyadAssaf/status/<%- item.id %>") <%- item.content.text %>
 
-            <% } %>
-            <% } %>
+                <% } %>
+                <% } %>
 
         <% } %><% } %>
