@@ -43,12 +43,11 @@
 
                 //- loop through commits
                 <% _.each(item.content.commits, function (commit) { %>
-                a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>")
-                    .feedDesc
-                        ul
-                            li
-                                .commit
-                                    a(href!="https://github.com/<%- item.subject.name %>") <%- commit.message %>
+                .feedDesc
+                    ul
+                        li
+                            .commit
+                                a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>") <%- commit.message %>
                 <% }); %>
 
                 //- WatchEvent
@@ -60,7 +59,7 @@
                 //- CreateEvent
                 <% } else if (item.type === 'CreateEvent') {%>
                 .feedTitle
-                    .gh_action.octicon.octicon-repo
+                    .gh_action.octicon.octicon-pencil
                     a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
 
                 //- PublicEvent

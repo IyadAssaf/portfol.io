@@ -66,17 +66,24 @@ define(['backbone', 'underscore', 'jquery', 'moment',
                             $dayIcon.removeClass('octicon-chevron-right');
                             $dayIcon.addClass('octicon-chevron-down');
                         }
-
-
-
-                        // alert(dayBox.html());
-
-                        // if($(this).next('.dayIcon').hasClass('octicon octicon-chevron-right')) {
-                        //
-                        // }
-
-                        // alert('date');
                     });
+
+                    $('.feedTitle').each(function () {
+
+                        var self = this, initialColor;
+
+                        $(self).find('a').mouseover(function () {
+                            var $icon = $(self).find('.gh_action');
+                            initialColor = $icon.css('color');
+                            $icon.css('color', 'rgb(75, 70, 70)');
+
+                        }).mouseout(function () {
+                            var $icon = $(self).find('.gh_action');
+                            $icon.css('color', initialColor);
+                        });
+
+                    });
+
                 });
 
             });

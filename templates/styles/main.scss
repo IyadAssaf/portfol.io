@@ -201,6 +201,7 @@ body {
             margin-bottom: 16px;
             position: fixed;
             z-index: 1000;
+            z-index: -1;
         };
 
         .feedBody {
@@ -243,6 +244,10 @@ body {
                 margin-bottom: 8px;
                 font-size: 20px;
                 cursor: pointer;
+
+                &:hover {
+                    color: #156929;
+                };
             };
 
             .dayIcon {
@@ -256,6 +261,10 @@ body {
                     color: #5C5555;
                     font-family: 'Ubuntu', sans-serif;
                     line-height: 41px;
+
+                    &:hover {
+                        color: #2C2C2C;
+                    };
                 };
 
 
