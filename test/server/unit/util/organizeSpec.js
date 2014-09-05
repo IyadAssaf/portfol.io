@@ -62,6 +62,4 @@ describe('byDay', function () {
             }).should.throw(Error);
         });
     });
-
-
 });
