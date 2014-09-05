@@ -41,6 +41,7 @@ module.exports = function (grunt) {
 						describe: true,
 						it: true,
 						beforeEach: true,
+						afterEach: true,
 						before: true,
 						define: true,
 						require: true
@@ -69,6 +70,7 @@ module.exports = function (grunt) {
 						describe: true,
 						it: true,
 						beforeEach: true,
+						afterEach: true,
 						before: true,
 						define: true,
 						require: true
