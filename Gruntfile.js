@@ -2,7 +2,9 @@ module.exports = function (grunt) {
 	'use strict';
 
 	var fs = require('fs'),
-		_ = require('underscore');
+		_ = require('underscore'),
+		needle = require('needle');
+
 
 	/*!
 	 * Grunt configuration
@@ -84,9 +86,8 @@ module.exports = function (grunt) {
 		jade: {
 			debug: {
 				options: {
-					data: {
-						debug: true,
-						timestamp: ""
+					data: function () {
+						return require('./cfg/common').profile;
 					}
 				},
 				files: {
@@ -157,7 +158,16 @@ module.exports = function (grunt) {
                     create: ['cfg/.local/mongo', 'cfg/.local/redis']
                 }
             }
-        }
+        },
+		favicons: {
+			options: {
+				firefoxRound: true
+			},
+			icons: {
+				src: 'app/public/assets/images/user.png',
+				dest: 'app/public/assets/images/ico'
+			}
+		}
 	});
 
 	/*!
@@ -170,6 +180,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-mkdir');
+	grunt.loadNpmTasks('grunt-favicons');
 
     /*!
 	 * Tasks
@@ -178,15 +189,31 @@ module.exports = function (grunt) {
 	grunt.registerTask('cfg-public', function () {
 
 		var cfg = fs.readFileSync('./templates/cfg.js').toString(),
-			profile = require('./cfg/common.js').profile;
+			profile = require('./cfg/common').profile;
 
 		fs.writeFileSync('./app/public/app/cfg.js', _.template(cfg)(profile));
 	});
+
+	grunt.registerTask('image-prepare', function () {
+
+		var done = this.async(),
+		imageUrl = require('./cfg/common').profile.image;
+
+		// download the user's image
+		needle.get(imageUrl, function(err, resp) {
+			fs.writeFile('./app/public/assets/images/user.png', resp.body, function () {
+				grunt.log.writeln('Downloaded user image');
+				done();
+			});
+		});
+	});
+
 	grunt.registerTask('sassMin', ['sass', 'cssmin']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('validate', ['jshint', 'test']);
-	grunt.registerTask('build', ['jade', 'sassMin', 'cfg-public']);
+	grunt.registerTask('favicon', ['image-prepare', 'favicons']);
+	grunt.registerTask('build', ['jade', 'sassMin', 'cfg-public', 'favicon']);
 	grunt.registerTask('config', ['mkdir']);
 
 	// Default should be run after npm install

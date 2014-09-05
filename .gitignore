@@ -2,10 +2,12 @@
 node_modules
 .sass-cache
 npm-debug.log
-views/layout.html
+templates/views/layout.html
 app/public/app/templates
 app/public/app/cfg.js
 app/public/assets/styles
+app/public/assets/images/user.png
+app/public/assets/images/ico/*
 app/public/assets/bower_components
 cfg/.local
 .elasticbeanstalk/
