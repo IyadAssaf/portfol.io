@@ -45,7 +45,7 @@
                 <% _.each(item.content.commits, function (commit) { %>
                 .feedDesc
                     ul
-                        li
+                        li.commit_icon
                             .commit
                                 a(href!="https://github.com/<%- item.subject.name %>/commit/<%- commit.sha %>") <%- commit.message %>
                 <% }); %>
@@ -67,6 +67,26 @@
                 .feedTitle
                     .gh_action.octicon.octicon-repo
                     a(href!="https://github.com/<%- item.subject.name %>") <%- item.subject.name %> is now public
+
+                //- IssuesEvent
+                <% } else if (item.type === 'IssuesEvent') {%>
+                .feedTitle
+                    .gh_action.octicon.octicon-issue-opened
+                    a(href!="https://github.com/<%- item.subject.name %>/issues/<%- item.content.issue.number %>") Opened issue: <%- item.content.issue.title %>
+                <% if(item.content.issue.body) { %>
+                .feedDesc
+                    ul
+                        li.general
+                            .commit
+                                a(href!="https://github.com/<%- item.subject.name %>/issues/<%- item.content.issue.number %>") <%- item.content.issue.body %>
+
+                        //- loop through tags
+                        <% _.each(item.content.issue.labels, function (tag) { %>
+                        li.issue_tags
+                            .commit(style="margin-top: 15px;")
+                                a(href!="https://github.com/<%- item.subject.name %>/labels/<%- tag.name %>", style!="color: <%- tag.color %>") <%- tag.name %>
+                        <% }); %>
+                <% } %>
                 <% } %>
 
                 <% } else if(item.origin === 'twitter') { %>

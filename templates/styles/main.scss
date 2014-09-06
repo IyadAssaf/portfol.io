@@ -261,13 +261,12 @@ body {
                     font-size: 15px;
                     color: #5C5555;
                     font-family: 'Ubuntu', sans-serif;
-                    line-height: 41px;
+                    line-height: 50px;
 
                     &:hover {
                         color: #2C2C2C;
                     };
                 };
-
 
                 .gh_action {
                     margin-right: 7px;
@@ -286,7 +285,7 @@ body {
                     list-style: none;
                 };
 
-                li:before {
+                li.commit_icon:before {
                     content: '\f01f';
                     font-family: github-octicons;
                     display: inline-block;
@@ -294,7 +293,27 @@ body {
                     padding-bottom: 0em;
                     position: absolute;
                     margin-top: -0.3em;
-                }
+                };
+
+                li.general:before {
+                    content: '\f052';
+                    font-family: github-octicons;
+                    display: inline-block;
+                    margin-left: -1.3em;
+                    padding-bottom: 0em;
+                    position: absolute;
+                    margin-top: -0.3em;
+                };
+
+                li.issue_tags:before {
+                    content: '\f015';
+                    font-family: github-octicons;
+                    display: inline-block;
+                    margin-left: -1.3em;
+                    padding-bottom: 0em;
+                    position: absolute;
+                    margin-top: -0.3em;
+                };
             };
         };
     };
