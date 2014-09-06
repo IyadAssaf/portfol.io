@@ -215,10 +215,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('favicon', ['image-prepare', 'favicons']);
 	grunt.registerTask('build', ['jade', 'sassMin', 'cfg-public', 'favicon']);
 	grunt.registerTask('config', ['mkdir']);
-
-	// Trying out heroku-node-sass buildpack: https://github.com/glebm/heroku-buildpack-nodejs-grunt-sass
-	grunt.registerTask('heroku:production', ['build']);
-
+	
 	// Default should be run after npm install
 	grunt.registerTask('default', ['validate']);
 };
