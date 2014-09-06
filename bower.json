@@ -21,7 +21,6 @@
     "angularAMD": "~0.2.1",
     "backbone": "~1.1.2",
     "bootstrap-sass-official": "~3.2.0",
-    "octicons": "~2.1.1",
     "medium-editor": "~1.9.0",
     "requirejs-text": "~2.0.12",
     "to-markdown": "~0.0.2",
@@ -29,6 +28,7 @@
     "q": "~1.0.1",
     "bluebird": "~2.3.2",
     "moment": "~2.8.2",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "octicons": "~2.1.2"
   }
 }

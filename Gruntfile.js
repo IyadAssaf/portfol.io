@@ -119,7 +119,7 @@ module.exports = function (grunt) {
 						'app/public/assets/bower_components/bootstrap-sass-official/assets/stylesheets',
 
 						// icons
-						'templates/styles/includes/octicons/octicons'
+						'app/public/assets/bower_components/octicons/octicons'
 					]
 				},
 				files: {
