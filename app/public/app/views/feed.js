@@ -48,6 +48,7 @@ define(['backbone', 'underscore', 'jquery', 'moment',
             }, function () {
                 feedContent = [];
             }).then(function () {
+
                 self.$el.html(_.template(FeedTemplate)({ feed: feedContent }));
 
                 $(function () {

@@ -17,7 +17,18 @@ module.exports = RequestHandler = function (main) {
 
         // request sorted feed of twitter / gh and post activity
         socket.on('feed', function (query, next) {
-            self.models.feed.query({ sort: { date: -1 }, group: 'byDay' }).then(function (feeds) {
+            self.models.feed.query({
+
+                // sort by time, latest first
+                sort: { date: -1 },
+
+                // group by day
+                group: 'byDay',
+
+                // don't return original json
+                filter: { '_json': 0 }
+
+            }).then(function (feeds) {
                 next(feeds);
             });
         });

@@ -81,7 +81,7 @@ Feed.prototype.query = function (args) {
     var d = q.defer();
 
     self.Model
-    .find((args && args.query) || {})
+    .find((args && args.query) || {}, (args && args.filter) || {})
     .limit((args && args.limit) || null)
     .skip((args && args.skip) || null)
     .sort((args && args.sort) || null)
