@@ -63,9 +63,10 @@ Feed.prototype.add = function (obj) {
         } : function () {
             self.log('data', 'Inserting ' + item.origin + ' item: ' + item.id);
 
-            item.save(function (_err) {
-                d[_err ? 'reject' : 'resolve'](_err ? _err : item);
-            });
+            return item.date ? item.save(function (_err) {
+                return d[_err ? 'reject' : 'resolve'](_err ? _err : item);
+            }) : d.reject('item has no .date');
+
         })();
     });
 
