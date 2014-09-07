@@ -52,7 +52,6 @@ define(['backbone', 'underscore', 'jquery', 'moment',
                 self.$el.html(_.template(FeedTemplate)({ feed: feedContent }));
 
                 $(function () {
-
                     // Toggle date boxes and icon
                     $('.date').click(function () {
                         var $dayBox = $(this).parent().find('.dayBox'),

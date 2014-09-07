@@ -62,6 +62,16 @@
                     .gh_action.octicon.octicon-pencil
                     a(href!="https://github.com/<%- item.subject.name %>") Created <%- item.subject.name %>
 
+
+
+
+                //- WatchEvent
+                <% } else if(item.type === 'ForkEvent') { %>
+                .feedTitle
+                    .gh_action.octicon.octicon-repo-forked
+                    a(href!="https://github.com/<%- item.subject.name %>") Forked <%- item.subject.name %>
+
+
                 //- PublicEvent
                 <% } else if (item.type === 'PublicEvent') {%>
                 .feedTitle
